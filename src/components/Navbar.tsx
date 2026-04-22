@@ -259,6 +259,7 @@ export default function Navbar() {
     ["Team", "/team"],
     ["Blogs", "/blogs"],
     ["FAQ's", "/faq"],
+    ["Updates", "/Updates"],
   ];
 
   return (

@@ -1,124 +1,311 @@
-import {
-  FaBuilding,
-  FaCalculator,
-  FaBriefcase,
-  FaFileInvoiceDollar,
-  FaUserTie,
-  FaGlobe,
-  FaCertificate,
-  FaBook,
-  FaMoneyCheckAlt,
-  FaSearch,
-  FaShieldAlt,
-  FaGlobeAsia,
-  FaHandsHelping,
-} from "react-icons/fa";
-import { VscGraphLine } from "react-icons/vsc";
+
+const IconBEE = () => (
+  <svg
+    className="w-8 h-8"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 2L2 7L12 12L22 7L12 2Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M2 17L12 22L22 17"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M2 12L12 17L22 12"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const IconBIS = () => (
+  <svg
+    className="w-8 h-8"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 3L20 7.5V16.5L12 21L4 16.5V7.5L12 3Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M12 12L20 7.5"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M12 12L4 7.5"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M12 12V21"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const IconEPR = () => (
+  <svg
+    className="w-8 h-8"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3 12H6L8 8L10 16L12 4L14 14L16 10L18 12H21"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <circle cx="18" cy="18" r="3" stroke="currentColor" strokeWidth="1.5" />
+    <circle cx="6" cy="18" r="3" stroke="currentColor" strokeWidth="1.5" />
+  </svg>
+);
+
+const IconWPC = () => (
+  <svg
+    className="w-8 h-8"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20 7L4 7"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <path
+      d="M20 12H10"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <path
+      d="M20 17H14"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <rect
+      x="2"
+      y="4"
+      width="20"
+      height="16"
+      rx="2"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    />
+    <circle cx="7" cy="17" r="1.5" fill="currentColor" />
+  </svg>
+);
+
+const IconTEC = () => (
+  <svg
+    className="w-8 h-8"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6 9L12 15L18 9"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M4 5H20"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <path
+      d="M4 19H20"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+const IconLM = () => (
+  <svg
+    className="w-8 h-8"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 2L2 7L12 12L22 7L12 2Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M2 17L12 22L22 17"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M2 12L12 17L22 12"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+
+const getIconForService = (title) => {
+  if (title.includes("BEE")) return <IconBEE />;
+  if (title.includes("BIS")) return <IconBIS />;
+  if (title.includes("EPR")) return <IconEPR />;
+  if (title.includes("WPC")) return <IconWPC />;
+  if (title.includes("TEC")) return <IconTEC />;
+  if (title.includes("Legal") || title.includes("LMPC")) return <IconLM />;
+  return <IconBIS />;
+};
 
 export const servicesData = [
   {
-    id: "business-consultancy-services",
-    icon: FaBriefcase,
-    title: "Business Consultancy Services",
+    title: "BEE Registration",
     description:
-      "Strategic consulting to help startups, SMEs, and enterprises plan, structure, and scale efficiently.",
+      "Certification for energy efficiency and star labeling of electrical appliances under Bureau of Energy Efficiency (BEE).",
+    category: "Registration",
+    icon: getIconForService("BEE Registration"),
   },
   {
-    id: "company-incorporation-registration",
-    icon: FaBuilding,
-    title: "Company Incorporation & Registration",
+    title: "BIS (CRS) Registration for Electronic Products",
     description:
-      "End-to-end company incorporation services including Private Limited, LLP, Partnership, and Proprietorship.",
-  },
-    {
-    id: "msme-fssai-registration",
-    icon: FaCertificate,
-    title: "MSME & FSSAI Registration",
-    description:
-      "Fast and reliable MSME registration and FSSAI licensing services for regulatory approvals.",
+      "Mandatory CRS registration for electronics to ensure safety, quality, and compliance with BIS standards.",
+    category: "Registration",
+    icon: getIconForService("BIS (CRS) Registration"),
   },
   {
-    id: "bookkeeping-accounting",
-    icon: FaBook,
-    title: "Bookkeeping & Accounting",
+    title: "EPR Registration for E-Waste Management",
     description:
-      "Accurate bookkeeping and accounting services to maintain compliant financial records.",
+      "Authorization for producers & importers to manage electronic waste under India’s E-Waste Management Rules.",
+    category: "Registration",
+    icon: getIconForService("EPR Registration"),
   },
   {
-    id: "foreign-entity-business-setup",
-    icon: FaGlobe,
-    title: "Foreign Entity Business Setup in India",
+    title: "EPR Registration for Plastic Waste Management",
     description:
-      "Expert support for foreign companies and NRIs to set up and operate businesses in India.",
+      "Mandatory EPR authorization for plastic waste producers to ensure eco-friendly collection & recycling.",
+    category: "Registration",
+    icon: getIconForService("EPR Registration"),
   },
   {
-    id: "tax-compliance-advisory",
-    icon: FaCalculator,
-    title: "Tax Compliance & Advisory",
+    title: "EPR Registration for Battery Waste Management",
     description:
-      "GST registration & filing, income tax returns, statutory filings, and expert tax advisory.",
-  },
-    {
-    id: "fema-compliance-services",
-    icon: FaFileInvoiceDollar,
-    title: "FEMA Compliance Services",
-    description:
-      "FEMA compliance, RBI filings, FDI reporting, and cross-border transaction support.",
+      "Compliance for battery manufacturers & importers under Battery Waste Management Rules, 2022.",
+    category: "Registration",
+    icon: getIconForService("EPR Registration"),
   },
   {
-    id: "company-secretarial-services",
-    icon: FaUserTie,
-    title: "Company Secretarial Services",
+    title: "EPR Registration for Tire Waste Management",
     description:
-      "ROC filings, statutory registers, board resolutions, annual compliances, and governance support.",
+      "Mandatory compliance for tire manufacturers to recycle, reuse, and dispose waste tires responsibly.",
+    category: "Registration",
+    icon: getIconForService("EPR Registration"),
   },
   {
-    id: "payroll-management-services",
-    icon: FaMoneyCheckAlt,
-    title: "Payroll Management Services",
+    title: "WPC & ETA Approval",
     description:
-      "Complete payroll processing including salary computation, deductions, and compliance reporting.",
+      "Wireless Planning & Coordination (WPC) ETA approval for wireless devices operating on de-licensed bands.",
+    category: "Registration",
+    icon: getIconForService("WPC & ETA Approval"),
   },
   {
-    id: "cost-management-financial-planning",
-    icon: VscGraphLine,
-    title: "Cost Management & Financial Planning",
+    title: "TEC/MTTCE Approval",
     description:
-      "Cost control, financial planning, and profitability improvement strategies.",
+      "Approval for telecom equipment under Mandatory Testing & Certification of Telecom Equipment (MTTCE) scheme.",
+    category: "Registration",
+    icon: getIconForService("TEC/MTTCE Approval"),
   },
   {
-    id: "internal-audit-services",
-    icon: FaSearch,
-    title: "Internal Audit Services",
+    title: "TAC & IMEI Registration",
     description:
-      "Internal audits to evaluate controls, identify risks, and improve operational efficiency.",
+      "Mandatory Type Approval Code (TAC) and IMEI registration for mobile devices before market entry.",
+    category: "Registration",
+    icon: getIconForService("TAC & IMEI Registration"),
+  },
+  // License & Certification
+  {
+    title: "BIS Certification (ISI Mark) for Domestic Manufacturers",
+    description:
+      "ISI mark certification ensuring product quality, safety, and compliance for Indian manufacturers.",
+    category: "License & Certification",
+    icon: getIconForService("BIS Certification"),
   },
   {
-    id: "compliance-audit-services",
-    icon: FaShieldAlt,
-    title: "Compliance Audit Services",
+    title: "BIS Certification (ISI Mark) for Foreign Manufacturers (FMCS)",
     description:
-      "Compliance audits to ensure adherence to statutory laws, policies, and industry standards.",
+      "ISI certification under FMCS scheme for foreign manufacturers exporting to India.",
+    category: "License & Certification",
+    icon: getIconForService("BIS Certification"),
   },
   {
-    id: "international-accounting-taxation-services",
-    icon: FaGlobeAsia,
-    title: "International Accounting & Taxation Services",
+    title: "BIS Scheme-X Certification",
     description:
-      "Accounting and taxation services for US, UK, and Dubai-based businesses.",
+      "Special BIS certification scheme (Scheme-X) for bulk consignments, project imports & specific needs.",
+    category: "License & Certification",
+    icon: getIconForService("BIS Scheme-X"),
+  },
+  // Auxiliary
+  {
+    title: "Legal Metrology (LMPC) Registration",
+    description:
+      "Mandatory registration for importers and manufacturers under Legal Metrology Act for packaged commodities.",
+    category: "Auxiliary",
+    icon: getIconForService("Legal Metrology"),
   },
   {
-    id: "other-business-support-services",
-    icon: FaHandsHelping,
-    title: "Other Business Support Services",
+    title: "CDSCO Registration",
     description:
-      "Customized compliance and business support services for evolving requirements.",
+      "Central Drugs Standard Control Organization registration for medical devices and pharmaceuticals.",
+    category: "Auxiliary",
+    icon: getIconForService("CDSCO"),
   },
-   {
-    id: "hn-other-certifications-and-registration",
-    icon: FaHandsHelping,
-    title: "Hn other certifications and Registration",
+  {
+    title: "FSSAI Registration",
     description:
-      "ISO certification and compliance service provider in India, offering a comprehensive range of management system certifications, regulatory registrations, and statutory licenses to organizations across India",
+      "Food Safety and Standards Authority of India license for food businesses.",
+    category: "Auxiliary",
+    icon: getIconForService("FSSAI"),
   },
 ];
+
+
+
+
