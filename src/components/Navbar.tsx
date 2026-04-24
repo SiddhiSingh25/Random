@@ -50,7 +50,7 @@
 //     ["Our Services", "/services"],
 //     ["Team", "/team"],
 //     // ["Blogs", "/blogs"],
-   
+
 //     ["Updates", "/Updates"],
 //      ["FAQ's", "/faq"],
 //   ];
@@ -176,6 +176,7 @@ import { MdEmail, MdChevronRight, MdClose, MdMenu } from "react-icons/md";
 import { IoIosCall } from "react-icons/io";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { FaInstagram, FaXTwitter, FaChevronDown } from "react-icons/fa6";
+import { BsClock } from "react-icons/bs";
 
 // --- Types & Data ---
 interface DropdownItem {
@@ -217,31 +218,55 @@ export default function Navbar() {
   // Close mobile menu on route change
   useEffect(() => setIsMobileMenuOpen(false), [pathname]);
 
+
+  const socialLinks = [
+    { icon: IoLogoLinkedin, href: "https://linkedin.com" },
+    { icon: FaXTwitter, href: "https://twitter.com" },
+    { icon: FaInstagram, href: "https://instagram.com" },
+  ];
+
   return (
     <header className="relative w-full">
       {/* Top Banner - Hidden on very small screens for better vertical space */}
-      <div className="hidden sm:flex w-full bg-slate-900 text-slate-200 py-2.5 px-6 lg:px-20 justify-between items-center text-xs font-medium tracking-wide">
-        <div className="flex gap-6">
-          <a href="mailto:info@example.com" className="flex items-center gap-2 hover:text-amber-400 transition-colors">
-            <MdEmail className="text-amber-500 text-base" /> unmatchedconsultancy@gmail.com
+      <div className="hidden sm:flex w-full bg-[#162744] text-slate-200 py-3 px-6 lg:px-20 justify-between items-center text-[11px] uppercase tracking-widest border-b border-white/10 family-medium">
+        <div className="flex gap-8 items-center">
+          <a href="mailto:info@eminenceglobal.com" className="flex items-center gap-2 hover:text-[#bc8737] transition-colors">
+            <MdEmail className="text-[#bc8737] text-sm" /> info@eminenceglobal.com
           </a>
-          <a href="tel:+919910678889" className="flex items-center gap-2 hover:text-amber-400 transition-colors">
-            <IoIosCall className="text-amber-500 text-base" /> +91 9910678889
+          <a href="tel:+919910678889" className="flex items-center gap-2 hover:text-[#bc8737] transition-colors">
+            <IoIosCall className="text-[#bc8737] text-sm" /> +91 9910678889
           </a>
+          <div className="hidden lg:flex items-center gap-2 text-slate-400">
+            <BsClock className="text-[#bc8737] text-sm" /> Mon - Sat: 10:00 AM - 6:30 PM
+          </div>
         </div>
-        <div className="flex items-center gap-4">
-          {[IoLogoLinkedin, FaXTwitter, FaInstagram].map((Icon, i) => (
-            <Link key={i} href="#" className="hover:text-amber-400 transition-transform hover:scale-110">
-              <Icon size={16} />
-            </Link>
-          ))}
+
+        <div className="flex items-center gap-6">
+          <span className="hidden xl:inline-block text-[#bc8737] border-r border-white/20 pr-6 mr-2">
+            Global Regulatory & Certification Experts
+          </span>
+          <div className="flex items-center gap-4">
+            {socialLinks.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={i}
+                  href={item.href}
+                  target="_blank"
+                  className="hover:text-[#bc8737] transition-all hover:-translate-y-0.5"
+                >
+                  <Icon size={14} />
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
 
       {/* Main Navigation */}
       <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          
+
           {/* Logo Section */}
           <Link href="/" className="relative flex items-center group">
             <div className="relative h-12 w-32 transition-transform duration-300 group-hover:scale-105">
@@ -275,8 +300,8 @@ export default function Navbar() {
                   >
                     {label}
                     {hasDropdown && (
-                      <FaChevronDown 
-                        className={`text-[10px] transition-transform duration-300 ${activeDropdown === label ? 'rotate-180' : ''}`} 
+                      <FaChevronDown
+                        className={`text-[10px] transition-transform duration-300 ${activeDropdown === label ? 'rotate-180' : ''}`}
                       />
                     )}
                   </Link>
@@ -325,8 +350,8 @@ export default function Navbar() {
             <Link href="/contact" className="hidden sm:inline-flex items-center px-6 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-full hover:bg-amber-600 transition-all shadow-md active:scale-95">
               Get Started
             </Link>
-            
-            <button 
+
+            <button
               className="lg:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle Menu"
@@ -339,7 +364,7 @@ export default function Navbar() {
         {/* Mobile Menu Overlay */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -348,8 +373,8 @@ export default function Navbar() {
               <div className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
                 {navLinks.map(({ label, href }) => (
                   <div key={label} className="space-y-2">
-                    <Link 
-                      href={href} 
+                    <Link
+                      href={href}
                       className="block text-lg font-bold text-slate-800"
                     >
                       {label}
