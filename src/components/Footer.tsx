@@ -1,117 +1,119 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { FaPhoneAlt, FaBuilding, FaCaretRight } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaPhoneAlt, FaBuilding, FaArrowRight } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-primary-800 text-gray-50 px-6 md:px-16 lg:px-24 xl:px-32 pt-12 pb-8">
-      {/* Top Section */}
-      <div className="flex flex-col lg:flex-row justify-between gap-12 md:gap-20 border-b border-gray-600 pb-10">
-        {/* Logo + About */}
-        <div className="md:max-w-sm flex-shrink-0">
-          <Link href="/" className="flex items-center">
-            <div className="relative h-24 sm:h-24 md:h-28 w-[120px] sm:w-[140px] md:w-[160px]">
-              <Image
-                src="/images/logo-light.png"
-                alt="Company Logo"
-                fill
-                priority
-                sizes="(max-width: 640px) 120px,
-                       (max-width: 768px) 140px,
-                       160px"
-                className="object-contain"
-              />
+    <footer className="bg-primary-800 text-gray-50 border-t border-gray-700">
+      <div className="mx-auto max-w-[1440px] px-6 py-16 md:px-16 lg:px-24">
+        
+        {/* Main Grid Structure */}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
+          
+          {/* 1. Brand & Description (5 Columns) */}
+          <div className="lg:col-span-5">
+            <Link href="/" className="inline-block transition-transform hover:scale-[1.02]">
+              <div className="relative h-20 w-48">
+                <Image
+                  src="/images/logo-light.png"
+                  alt="Company Logo"
+                  fill
+                  priority
+                  className="object-contain"
+                />
+              </div>
+            </Link>
+            <p className="mt-6 max-w-sm text-base leading-relaxed text-gray-300">
+              Unmatched Consultancy is your trusted partner for accounting, taxation, 
+              audit, and financial advisory services. We help businesses navigate 
+              complex regulations for sustainable growth.
+            </p>
+            
+            {/* Social Placeholder or Trust Badges can go here */}
+            <div className="mt-8 flex gap-4">
+               <div className="h-1 w-20 bg-secondary-500 rounded-full" />
             </div>
-          </Link>
+          </div>
 
-          <p className="mt-4 text-sm text-gray-300 leading-relaxed">
-            Unmatched Consultancy is your trusted partner for accounting, taxation, audit, and financial advisory services. We help businesses navigate complex regulations and make informed decisions for sustainable growth.
-          </p>
-        </div>
-
-        {/* Links + Contact Info */}
-        <div className="flex flex-col md:flex-row flex-1 gap-10 md:gap-20">
-          {/* Company Links */}
-          <div className="flex-1">
-            <h2 className="font-semibold mb-6 text-lg text-gray-50">Company</h2>
-            <ul className="text-sm space-y-3">
+          {/* 2. Navigation Links (3 Columns) */}
+          <div className="lg:col-span-3 lg:pl-8">
+            <h2 className="text-lg font-bold uppercase tracking-wider text-white">
+              Company
+            </h2>
+            <ul className="mt-8 space-y-4">
               {[
                 { name: "Home", href: "/" },
                 { name: "About Us", href: "/about" },
                 { name: "Services", href: "/services" },
                 { name: "Team", href: "/team" },
                 { name: "Blogs", href: "/blog" },
-                { name: "FAQ's", href: "/faq" },
                 { name: "Contact Us", href: "/contact" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="flex items-center gap-2 text-gray-300 hover:text-secondary-500 transition-colors"
+                    className="group flex items-center gap-2 text-sm text-gray-300 transition-all hover:text-secondary-500"
                   >
-                    <FaCaretRight className="text-secondary-500 inline" /> {link.name}
+                    <FaArrowRight className="text-[10px] opacity-0 -ml-4 transition-all group-hover:opacity-100 group-hover:ml-0 text-secondary-500" />
+                    {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div className="flex-1">
-            <h2 className="font-semibold mb-6 text-lg text-gray-50">Get in Touch</h2>
-            <div className="flex flex-col gap-3 text-sm">
-              <a
-                href="tel:+919910678889"
-                aria-label="Call Unmatched Consultancy at +91 9910678889"
-                className="flex items-center gap-2 text-gray-300 hover:text-secondary-500 transition-colors"
-              >
-                <FaPhoneAlt className="text-secondary-500" /> +91 9910678889
-              </a>
-              <a
-                href="mailto:unmatchedconsultancy@gmail.com"
-                aria-label="Send Mail to Unmatched Consultancy at unmatchedconsultancy@gmail.com"
-                className="flex items-center gap-2 text-gray-300 hover:text-secondary-500 transition-colors"
-              >
-                <MdEmail className="text-secondary-500" /> unmatchedconsultancy@gmail.com
-              </a>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=144+St.no+05+Johripur,+Delhi+110094"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-300 hover:text-secondary-500 transition-colors"
-              >
-                <FaBuilding className="text-secondary-500" /> Delhi: 144 St.no 05 Johripur, Delhi - 110094
-              </a>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=B2-403,+Ivy+County,+Sector+75,+Noida+201301"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-300 hover:text-secondary-500 transition-colors"
-              >
-                <FaBuilding className="text-secondary-500" /> Noida: B2-403, Ivy County, Sector 75, Noida - 201301
-              </a>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=B-45,+Sector+56,+Gurugram,+Haryana+122011"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-gray-300 hover:text-secondary-500 transition-colors"
-              >
-                <FaBuilding className="text-secondary-500" /> Gurugram: B-45, Sector 56, Gurugram, Haryana - 122011
-              </a>
+          {/* 3. Global Locations (4 Columns) */}
+          <div className="lg:col-span-4">
+            <h2 className="text-lg font-bold uppercase tracking-wider text-white">
+              Get in Touch
+            </h2>
+            <div className="mt-8 space-y-6">
+              {/* Contact Actions */}
+              <div className="flex flex-wrap gap-4">
+                 <a href="tel:+919910678889" className="flex items-center gap-3 rounded-lg bg-primary-700/50 p-3 text-sm transition-colors hover:bg-primary-600">
+                    <FaPhoneAlt className="text-secondary-500" /> +91 9910678889
+                 </a>
+                 <a href="mailto:unmatchedconsultancy@gmail.com" className="flex items-center gap-3 rounded-lg bg-primary-700/50 p-3 text-sm transition-colors hover:bg-primary-600">
+                    <MdEmail className="text-secondary-500" /> Email Us
+                 </a>
+              </div>
+
+              {/* Office List */}
+              <div className="space-y-4 border-t border-gray-700 pt-6 text-sm text-gray-300">
+                {[
+                  { city: "Delhi", addr: "144 St.no 05 Johripur, Delhi - 110094" },
+                  { city: "Noida", addr: "B2-403, Ivy County, Sector 75, Noida - 201301" },
+                  { city: "Gurugram", addr: "B-45, Sector 56, Gurugram, Haryana - 122011" },
+                ].map((office) => (
+                  <div key={office.city} className="flex items-start gap-3">
+                    <FaBuilding className="mt-1 flex-shrink-0 text-secondary-500" />
+                    <p><span className="font-bold text-white">{office.city}:</span> {office.addr}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-16 border-t border-gray-700 pt-8">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-xs text-gray-400 md:text-sm">
+              © {currentYear} <span className="text-white font-medium">Unmatched Consultancy</span>. All Rights Reserved.
+            </p>
+            <div className="flex gap-8 text-xs text-gray-400">
+               <Link href="#" className="hover:text-secondary-500 transition-colors">Privacy Policy</Link>
+               <Link href="#" className="hover:text-secondary-500 transition-colors">Terms of Service</Link>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Bottom Section */}
-      <p className="pt-6 text-center text-xs md:text-sm text-gray-400">
-        Copyright 2026 ©{" "}
-        <Link href="#" className="hover:text-secondary-500 text-secondary-500 transition-colors">
-          Unmatched Consultancy
-        </Link>
-        . All Rights Reserved.
-      </p>
     </footer>
   );
 }

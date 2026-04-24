@@ -9,13 +9,14 @@ import HomePage from "@/components/last";
 import Services from "@/components/Services";
 import Start from "@/components/Start";
 import Team from "@/components/Team";
+import WhoWeAre from "./about/whoWeAre/page";
 // import { ContactIcon } from "@/components/ContactIcon";
 
 export default function Home() {
   return (
     <>
       <Start/>
-      <About/>
+      <WhoWeAre/>
       <Services limit={6}/>
       <Team limit={6}/>
       <Contact/>

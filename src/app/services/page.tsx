@@ -1,6 +1,7 @@
 "use client";
 
 import Header from "@/components/common/header";
+import Heading from "@/components/common/Heading";
 import ServiceCard from "@/components/layout/services/ServiceCard";
 import { servicesData } from "@/data/services-data";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -54,33 +55,66 @@ const Page = () => {
       ? servicesData
       : servicesData.filter((service) => service.category === activeTab);
 
+
+      console.log(filteredServices, "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+
   return (
     <>
-      <div className="bg-white min-h-screen">
-        <Header label="Services" />
-        {/* Hero Section */}
-        <section
-          ref={heroRef}
-          className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-primary-50 pt-24 pb-16 md:pt-32 md:pb-24"
-        >
-          <div className="absolute inset-0 bg-grid-primary-900/[0.02] bg-[size:40px_40px]" />
-          <div className="relative max-w-7xl mx-auto px-4 md:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isHeroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <h1 className="text-4xl md:text-6xl lg:text-7xl family-bold text-primary-900 mb-6 leading-tight">
-                Our <span className="text-secondary-600">Services</span>
-              </h1>
-              <p className="text-lg md:text-xl text-primary-600 max-w-3xl mx-auto family-regular">
-                Complete compliance solutions including registrations, licenses,
-                certifications, and product testing services for Indian market
-                entry.
-              </p>
-            </motion.div>
+      <div className="bg-white min-h-screen pt-6">
+        
+         <Heading 
+                label="Blog & Article"
+                title="Our Latest Insights"
+                description="Stay ahead of the curve with fresh content on code, design, startups, and everything in between."
+              />
+
+
+
+   <section className="py-16 px-4 md:px-8">
+          <div className="max-w-7xl mx-auto">
+            {/* <AnimatePresence mode="wait"> */}
+              {/* <motion.div
+                key={activeTab}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={staggerContainer}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+              > */}
+                  {servicesData.map((service, idx) => 
+               {
+                console.log(service,  "0000000000000000000")
+                return (
+                 <> 
+                 <ServiceCard
+                   key={service.id}
+              id={service.id}
+              icon={service.icon}
+              title={service.title}
+              
+              description={service.description}
+                  />
+                  </>
+                )
+               }
+                )}
+              {/* </motion.div> */}
+
+
+
+
+
+
           </div>
         </section>
+
+
+
+
+
+
+
+
 
         <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-md border-b border-primary-100 py-4 px-4">
           <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-3">
@@ -97,28 +131,40 @@ const Page = () => {
 
         <section className="py-16 px-4 md:px-8">
           <div className="max-w-7xl mx-auto">
-            <AnimatePresence mode="wait">
-              <motion.div
+            {/* <AnimatePresence mode="wait"> */}
+              {/* <motion.div
                 key={activeTab}
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
                 variants={staggerContainer}
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-              >
-                {filteredServices.map((service, idx) => (
-                  <ServiceCard
-                    key={`${service.title}-${idx}`}
-                    // id={service.title}
-                    title={service.title}
-                    description={service.description}
-                    icon={service.icon}
-                    category={service.category}
-                    index={idx}
+              > */}
+                {filteredServices.map((service, idx) => 
+               {
+                console.log(service,  "0000000000000000000")
+                return (
+                 <> 
+                 <ServiceCard
+                   key={service.id}
+              id={service.id}
+              icon={service.icon}
+              title={service.title}
+              
+              description={service.description}
                   />
-                ))}
-              </motion.div>
-            </AnimatePresence>
+                  </>
+                )
+               }
+                )}
+              {/* </motion.div> */}
+
+
+
+
+
+
+            {/* </AnimatePresence> */}
             {filteredServices.length === 0 && (
               <div className="text-center py-20">
                 <p className="text-primary-500 text-lg">
