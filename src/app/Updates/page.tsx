@@ -402,6 +402,7 @@ type NewsItem = {
   badge: string;
   color: "primary" | "secondary";
 };
+//tt
 
 
 // Mock news data
