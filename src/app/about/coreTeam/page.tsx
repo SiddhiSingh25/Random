@@ -80,7 +80,7 @@ const TeamSection = () => {
         ease: [0.21, 0.47, 0.32, 0.98],
       },
     },
-  };
+  } as const;
 
   const cardHover = {
     rest: { scale: 1, y: 0 },
@@ -92,7 +92,7 @@ const TeamSection = () => {
         ease: [0.21, 0.47, 0.32, 0.98],
       },
     },
-  };
+  } as const;
 
   const imageScale = {
     rest: { scale: 1 },
@@ -103,7 +103,7 @@ const TeamSection = () => {
         ease: [0.21, 0.47, 0.32, 0.98],
       },
     },
-  };
+  } as const;
 
   const overlayReveal = {
     rest: { opacity: 0, y: 20 },
@@ -115,7 +115,7 @@ const TeamSection = () => {
         ease: "easeOut",
       },
     },
-  };
+  } as const;
 
   const socialIconHover = {
     rest: { scale: 1, y: 0 },
@@ -183,8 +183,8 @@ const TeamSection = () => {
               variants={fadeInUp}
               custom={index}
               whileHover="hover"
-              initial="rest"
-              animate="rest"
+              // initial="rest"
+              // animate="rest"
               className="group relative"
             >
               <motion.div 
