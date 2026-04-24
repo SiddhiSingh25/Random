@@ -12,7 +12,6 @@ export default function ServiceDetailScreen() {
 
   const content = ServiceContent[id as keyof typeof ServiceContent];
 
-  console.log(id,  content,  "&7777777777777777")
 
   if (!content) {
     return <div className="py-20 text-center">Service details coming soon...</div>;

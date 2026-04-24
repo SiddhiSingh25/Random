@@ -4,7 +4,8 @@
 import { motion, type Variants } from "framer-motion";
 
 import { servicesData } from "@/data/services-data";
-import ServiceCard, { containerVariants } from "./layout/services/ServiceCard";
+import ServiceCard from "./layout/services/ServiceCard";
+import { containerVariants } from "./common/ServiceCard";
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Service = {
