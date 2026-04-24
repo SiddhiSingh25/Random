@@ -548,10 +548,10 @@ function TeamCard({
             <div className="mb-4 h-px w-12 overflow-hidden rounded-full">
               <motion.div
                 className="h-full rounded-full"
-                style={{
-                  background:
-                    "linear-gradient(90deg, #20385c, #bc8737)",
-                }}
+                // style={{
+                //   background:
+                //     "linear-gradient(90deg, #20385c, #bc8737)",
+                // }}
                 animate={
                   isHovered
                     ? { scaleX: 1, opacity: 1 }
