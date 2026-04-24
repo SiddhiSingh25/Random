@@ -23,12 +23,12 @@ const WhyChooseUs = () => {
   const fadeInLeft = {
   hidden: { opacity: 0, x: -60 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
-};
+} as const;
 
 const fadeInRight = {
   hidden: { opacity: 0, x: 60 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
-};
+} as const;
 
   return (
     <section ref={sectionRef} className="py-24 bg-gradient-to-br from-primary-500 to-secondary-500 relative overflow-hidden">
