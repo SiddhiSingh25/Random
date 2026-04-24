@@ -377,6 +377,9 @@
 //     </div>
 //   );
 // }
+
+
+
 "use client";
 
 import Header from "@/components/common/header";
@@ -389,13 +392,27 @@ import {
 } from "react-icons/fa";
 import { MdOutlineUpdate } from "react-icons/md";
 
+type NewsItem = {
+  id: number;
+  title: string;
+  category: string;
+  date: string;
+  description: string;
+  icon: IconKey; // ✅ yaha fix
+  badge: string;
+  color: "primary" | "secondary";
+};
+
+
 // Mock news data
-const newsData = [
+const newsData : NewsItem[] = [
   { id: 1, title: "BIS Temporary Exemption on Steel Imports till 30 June 2026", category: "BIS Update", date: "April 20, 2026", description: "BIS certification for steel products is temporarily exempted till 30 June 2026 under Steel QCO update.", icon: "shield", badge: "Exemption", color: "primary" },
   { id: 2, title: "DoT Extends NCCS Exemption for Cloud Routers & Wi-Fi CPEs", category: "TEC/MTCTE", date: "April 18, 2026", description: "DoT extends NCCS exemption for cloud-based IP routers and Wi-Fi CPEs till 31 August 2026.", icon: "bolt", badge: "Extended", color: "secondary" },
   { id: 3, title: "BIS Quality Control Order 2026 for Cookware & Food Cans", category: "BIS Certification", date: "April 15, 2026", description: "BIS certification is mandatory for Stainless Steel cookware, utensils, sinks and food cans under QCO 2026.", icon: "file", badge: "Mandatory", color: "primary" },
   // ... rest of your data
 ];
+
+type IconKey = keyof typeof iconMap;
 
 const iconMap = {
   calendar: FaCalendarAlt,
