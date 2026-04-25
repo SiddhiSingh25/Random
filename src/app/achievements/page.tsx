@@ -1,121 +1,173 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { BiAward, BiBadgeCheck, BiBuilding, BiFile } from 'react-icons/bi';
-import SimpleHeading from '@/components/common/SimpleHeading';
+import React, { useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
+import SimpleHeading from "@/components/common/SimpleHeading";
 
-// Mock Data for the section
-const counters = [
-  { id: 1, value: "1,500+", title: "Certifications Secured", icon: <BiFile size={24} /> },
-  { id: 2, value: "350+", title: "Global Manufacturers", icon: <BiBuilding size={24} /> },
-  { id: 3, value: "12+", title: "Govt. Approvals Secured", icon: <BiBadgeCheck size={24} /> },
-  { id: 4, value: "98.8%", title: "First-Time Success Rate", icon: <BiAward size={24} /> },
+// --- DATA ---
+
+const ACCOMPLISHMENTS = [
+  {
+    id: 1,
+    title: "Best Newcomer 2024",
+    img: "/images/slider/image1.jpeg",
+    organization: "Global BIS Leadership Summit",
+  },
+  {
+    id: 2,
+    title: "Compliance Technology Innovation Award",
+    img: "/images/slider/image1.jpeg",
+    organization: "Industry Awards India",
+  },
+  {
+    id: 3,
+    title: "Certified BIS Compliance Expert - Level 1",
+    img: "/images/slider/image1.jpeg",
+    organization: "Eminence Internal Academy",
+  },
+  {
+    id: 4,
+    title: "Top Government Liaison Partner",
+    img: "/images/slider/image1.jpeg",
+    organization: "National SME Forum",
+  },
+  {
+    id: 5,
+    title: "Leadership in International Standards",
+    img: "/images/slider/image1.jpeg",
+    organization: "Eminence Foundation",
+  },
+  {
+    id: 6,
+    title: "Excellence in Client Relations",
+    img: "/images/slider/image1.jpeg",
+    organization: "Client Choice Awards",
+  },
 ];
 
-const documents = [
-  { id: 1, type: "BIS Certificate", year: "2024", img: '/images/slider/image1.jpeg' },
-  { id: 2, type: "ISO 9001", year: "2024", img: '/images/slider/image1.jpeg' },
-  { id: 3, type: "TE & MT Approval", year: "2023", img: '/images/slider/image1.jpeg' },
-];
+// --- COMPONENTS ---
 
-const Counter = ({ value }: { value: string }) => {
-  return (
-    <motion.span
-      className="text-4xl md:text-5xl font-bold text-slate-800"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
-      {value}
-    </motion.span>
-  );
-};
+export default function AchievementsCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-const AchievementSection = () => {
+  // Constants for item width and spacing to calculate pagination
+  const itemWidth = 240; // Approx width of an image item
+  const gapWidth = 16; // md:gap-4
+  const visibleItems = 3; // Approx number of fully visible items on medium+ screens
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      // Prevent scrolling beyond the total number of items
+      const nextIdx = prevIndex + visibleItems;
+      return nextIdx < ACCOMPLISHMENTS.length ? nextIdx : prevIndex;
+    });
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => {
+      // Prevent scrolling before the start
+      const prevIdx = prevIndex - visibleItems;
+      return prevIdx >= 0 ? prevIdx : 0;
+    });
+  };
+
+  // Calculate the amount to scroll the container
+  const scrollOffset = -(currentIndex * (itemWidth + gapWidth));
+
   return (
-    <section className="py-16 md:py-24 px-6 bg-white text-slate-800">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-6 bg-slate-50 relative overflow-hidden">
+      {/* Absolute Decorative Element for visual depth */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/50 rounded-full blur-[120px]" />
+
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
         {/* Section Header */}
         <SimpleHeading
-   badgeText="Regulatory Excellence"
-   title="Trusted Compliance Solutions"
-   description="Delivering BIS, CRS, WPC and regulatory certification services with proven expertise and government-backed documentation support."
-/>
+          badgeText="Our Accomplishments"
+          title="Milestones of Excellence"
+          description="A testament to our dedication, expertise, and commitment to delivering premium compliance solutions across the globe."
+          className="mb-12"
+        />
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Achievement Counters */}
-          <div className="grid grid-cols-2 gap-8">
-            {counters.map((item, idx) => (
-              <motion.div
-                key={item.id}
-                className="bg-slate-50 p-6 rounded-lg border border-slate-100 hover:border-primary-200 hover:shadow-sm transition-all"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-              >
-                <div className="flex items-center gap-3 mb-3 text-primary-600">
-                  {item.icon}
-                  <span className="text-sm font-medium">{item.title}</span>
-                </div>
-                <Counter value={item.value} />
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Certification Documents */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+        {/* --- CAROUSEL --- */}
+        <div className="w-full flex items-center justify-center gap-10">
+          
+          {/* Previous Button */}
+          <button
+            onClick={prevSlide}
+            disabled={currentIndex === 0}
+            className={`flex items-center justify-center w-12 h-12 rounded-full bg-white border border-slate-200 shadow-md transition-all ${
+              currentIndex === 0
+                ? "opacity-40 cursor-not-allowed"
+                : "text-slate-700 hover:border-blue-500 hover:text-blue-600 hover:shadow-lg"
+            }`}
+            aria-label="Previous accomplishments"
           >
-            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-              <h3 className="text-lg font-semibold text-slate-900 mb-6 flex items-center gap-2">
-                <BiBadgeCheck className="text-primary-600" size={20} />
-                Our Certifications
-              </h3>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {documents.map((doc) => (
+            <HiOutlineChevronLeft className="w-6 h-6" />
+          </button>
+
+          {/* Carousel Viewport */}
+          <div className="w-full relative h-[400px] overflow-hidden flex items-center justify-start group">
+            <motion.div
+              className="flex gap-4 cursor-grab active:cursor-grabbing w-[2000px]" // Static width for simplicity in movement calculation
+              animate={{ x: scrollOffset }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              drag="x"
+              dragConstraints={{ right: 0, left: scrollOffset }}
+              dragElastic={0.05}
+            >
+              <AnimatePresence initial={false}>
+                {ACCOMPLISHMENTS.map((item, index) => (
                   <motion.div
-                    key={doc.id}
-                    className="bg-white rounded-lg border border-slate-200 overflow-hidden hover:shadow-md transition-shadow"
-                    whileHover={{ y: -4 }}
+                    key={item.id}
+                    className="w-[240px] flex-shrink-0 flex flex-col items-center gap-6 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm transition-all duration-300 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-100/50"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    layout
                   >
-                    <div className="aspect-[3/4] bg-slate-100 flex items-center justify-center">
-                      <img 
-                        src={doc.img} 
-                        alt={doc.type} 
-                        className="w-full h-full object-cover"
+                    {/* Image Placeholder */}
+                    <div className="relative w-full aspect-[4/3] rounded-lg border border-slate-100 overflow-hidden shadow-inner">
+                      <Image
+                        src={item.img}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
                       />
                     </div>
-                    <div className="p-4 border-t border-slate-100">
-                      <h4 className="text-sm font-medium text-slate-900">{doc.type}</h4>
-                      <p className="text-xs text-slate-500 mt-1">Issued {doc.year}</p>
+
+                    {/* Content */}
+                    <div className="text-center w-full px-2">
+                      <h4 className="font-bold text-slate-900 leading-tight mb-1 text-base">
+                        {item.title}
+                      </h4>
+                      <p className="text-slate-500 text-sm font-medium">
+                        {item.organization}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
-              </div>
-              
-              <div className="mt-6 pt-6 border-t border-slate-200">
-                <p className="text-sm text-slate-600">
-                  All certifications are verified and issued by the respective government authorities.
-                </p>
-              </div>
-            </div>
-            
-            {/* Decorative element */}
-            <div className="absolute -z-10 -top-4 -right-4 w-24 h-24 bg-primary-100/30 rounded-full"></div>
-          </motion.div>
+              </AnimatePresence>
+            </motion.div>
+          </div>
+
+          {/* Next Button */}
+          <button
+            onClick={nextSlide}
+            disabled={currentIndex + visibleItems >= ACCOMPLISHMENTS.length}
+            className={`flex items-center justify-center w-12 h-12 rounded-full bg-white border border-slate-200 shadow-md transition-all ${
+              currentIndex + visibleItems >= ACCOMPLISHMENTS.length
+                ? "opacity-40 cursor-not-allowed"
+                : "text-slate-700 hover:border-blue-500 hover:text-blue-600 hover:shadow-lg"
+            }`}
+            aria-label="Next accomplishments"
+          >
+            <HiOutlineChevronRight className="w-6 h-6" />
+          </button>
         </div>
       </div>
     </section>
   );
-};
-
-export default AchievementSection;
+}

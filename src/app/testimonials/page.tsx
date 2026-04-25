@@ -1,115 +1,102 @@
-import Heading from "@/components/common/Heading";
+import SimpleHeading from "@/components/common/SimpleHeading";
+import { AnyARecord } from "dns";
 
-  const Testimonials = () => {
-    const cardsData = [
-        {
-            image: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200',
-            name: 'Briar Martin',
-            handle: '@neilstellar',
-            date: 'April 20, 2025'
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200',
-            name: 'Avery Johnson',
-            handle: '@averywrites',
-            date: 'May 10, 2025'
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&auto=format&fit=crop&q=60',
-            name: 'Jordan Lee',
-            handle: '@jordantalks',
-            date: 'June 5, 2025'
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=60',
-            name: 'Avery Johnson',
-            handle: '@averywrites',
-            date: 'May 10, 2025'
-        },
+const Testimonials = () => {
+    const testimonials = [
+        { text: "PrebuiltUI helped us move faster without sacrificing design quality. The components feel production-ready.", name: "Cristofer Levin", role: "Frontend engineer", image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200" },
+        { text: "The attention to detail in PrebuiltUI is impressive. Saved me hours of repetitive work and time. Highly recommended.", name: "Rohan Mehta", role: "Startup founder", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200" },
+        { text: "We were able ship faster using PrebuiltUI. The consistency across components made UI feel polished.", name: "Jason Kim", role: "Product designer", image: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=200&auto=format&fit=crop&q=60" },
+        { text: "PrebuiltUI feels like it was built by people who actually ship products. Components are clean and easy to use.", name: "Alex Turner", role: "Full stack developer", image: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop&q=60" },
+        { text: "PrebuiltUI helped us maintain design consistency across multiple projects. It's now a core part of design.", name: "Sofia Martinez", role: "UX designer", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&h=100&auto=format&fit=crop" },
+        { text: "Our team productivity improved noticeably after adopting PrebuiltUI. It reduced design handoff friction.", name: "Daniel Wong", role: "UI designer", image: "https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/userImage/userImage1.png" }
     ];
 
-    const CreateCard = ({ card } : any ) => (
-        <div className="p-4 rounded-lg mx-4 shadow hover:shadow-lg transition-all duration-200 w-72 shrink-0">
-            <div className="flex gap-2">
-                <img className="size-11 rounded-full" src={card.image} alt="User Image" />
-                <div className="flex flex-col">
-                    <div className="flex items-center gap-1">
-                        <p>{card.name}</p>
-                        <svg className="mt-0.5" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M4.555.72a4 4 0 0 1-.297.24c-.179.12-.38.202-.59.244a4 4 0 0 1-.38.041c-.48.039-.721.058-.922.129a1.63 1.63 0 0 0-.992.992c-.071.2-.09.441-.129.922a4 4 0 0 1-.041.38 1.6 1.6 0 0 1-.245.59 3 3 0 0 1-.239.297c-.313.368-.47.551-.56.743-.213.444-.213.96 0 1.404.09.192.247.375.56.743.125.146.187.219.24.297.12.179.202.38.244.59.018.093.026.189.041.38.039.48.058.721.129.922.163.464.528.829.992.992.2.071.441.09.922.129.191.015.287.023.38.041.21.042.411.125.59.245.078.052.151.114.297.239.368.313.551.47.743.56.444.213.96.213 1.404 0 .192-.09.375-.247.743-.56.146-.125.219-.187.297-.24.179-.12.38-.202.59-.244a4 4 0 0 1 .38-.041c.48-.039.721-.058.922-.129.464-.163.829-.528.992-.992.071-.2.09-.441.129-.922a4 4 0 0 1 .041-.38c.042-.21.125-.411.245-.59.052-.078.114-.151.239-.297.313-.368.47-.551.56-.743.213-.444.213-.96 0-1.404-.09-.192-.247-.375-.56-.743a4 4 0 0 1-.24-.297 1.6 1.6 0 0 1-.244-.59 3 3 0 0 1-.041-.38c-.039-.48-.058-.721-.129-.922a1.63 1.63 0 0 0-.992-.992c-.2-.071-.441-.09-.922-.129a4 4 0 0 1-.38-.041 1.6 1.6 0 0 1-.59-.245A3 3 0 0 1 7.445.72C7.077.407 6.894.25 6.702.16a1.63 1.63 0 0 0-1.404 0c-.192.09-.375.247-.743.56m4.07 3.998a.488.488 0 0 0-.691-.69l-2.91 2.91-.958-.957a.488.488 0 0 0-.69.69l1.302 1.302c.19.191.5.191.69 0z" fill="#2196F3" />
-                        </svg>
-                    </div>
-                    <span className="text-xs text-slate-500">{card.handle}</span>
-                </div>
+    const rows = [
+        { start: 0, end: 3, className: "animate-scroll" },
+        { start: 3, end: 6, className: "animate-scroll-reverse" }
+    ];
+
+    const renderCard = (testimonial : any, index : any) => (
+        <div key={index} className="bg-white border border-slate-200 hover:border-slate-300 rounded-xl p-4 shrink-0 w-[350px]">
+            <div className="flex mb-4">
+                {Array(5).fill(0).map((_, i) => (
+                    <svg key={i} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-star text-transparent fill-[#737373]" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>
+                ))}
             </div>
-            <p className="text-sm py-4 text-gray-800">Radiant made undercutting all of our competitors an absolute
-                breeze.</p>
-            <div className="flex items-center justify-between text-slate-500 text-xs">
-                <div className="flex items-center gap-1">
-                    <span>Posted on</span>
-                    <a href="https://x.com" target="_blank" className="hover:text-sky-500">
-                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="m.027 0 4.247 5.516L0 10h.962l3.742-3.926L7.727 10H11L6.514 4.174 10.492 0H9.53L6.084 3.616 3.3 0zM1.44.688h1.504l6.64 8.624H8.082z" fill="currentColor" />
-                        </svg>
-                    </a>
+            <p className="text-neutral-700 text-sm mb-6">{testimonial.text}</p>
+            <div className="flex items-center gap-3">
+                <img src={testimonial.image} alt={testimonial.name} className="w-11 h-11 rounded-full object-cover"/>
+                <div>
+                    <p className="font-medium text-neutral-800 text-sm">{testimonial.name}</p>
+                    <p className="text-neutral-600 text-sm">{testimonial.role}</p>
                 </div>
-                <p>{card.date}</p>
             </div>
         </div>
     );
 
     return (
         <>
-            <style>{`
-            @keyframes marqueeScroll {
-                0% { transform: translateX(0%); }
-                100% { transform: translateX(-50%); }
-            }
+            <style>
+                {`
+                    @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+                    *{
+                        font-family: "Geist", sans-serif;
+                    }
 
-            .marquee-inner {
-                animation: marqueeScroll 25s linear infinite;
-            }
+                    @keyframes scroll {
+                        0% {
+                            transform: translateX(0);
+                        }
+                        100% {
+                            transform: translateX(-50%);
+                        }
+                    }
+                    @keyframes scrollReverse {
+                        0% {
+                            transform: translateX(-50%);
+                        }
+                        100% {
+                            transform: translateX(0);
+                        }
+                    }
+                    .animate-scroll {
+                        animation: scroll 15s linear infinite;
+                    }
+                    .animate-scroll-reverse {
+                        animation: scrollReverse 15s linear infinite;
+                    }
+                `}
+            </style>
+            <section className="bg-[#FAFAFA] py-16 px-4">
+                <div className="max-w-6xl mx-auto">
 
-            .marquee-reverse {
-                animation-direction: reverse;
-            }
-        `}</style>
+                 
 
-
- <section className="relative py-12 bg-gray-50 overflow-hidden">
-
-
-      <Heading
-        label="Compliance Services"
-        title="Expert BIS & Regulatory Solutions"
-        description="Navigate Indian regulatory requirements with ease."
-      />
-
+                         <SimpleHeading
+  badgeText="Testimonials"
+  title="What Our Clients Say"
+  align="center"
+/>
     
 
-            <div className="marquee-row w-full mx-auto max-w-7xl overflow-hidden relative">
-                <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent"></div>
-                <div className="marquee-inner flex transform-gpu min-w-[200%] pt-10 pb-5">
-                    {[...cardsData, ...cardsData].map((card, index) => (
-                        <CreateCard key={index} card={card} />
-                    ))}
-                </div>
-                <div className="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-white to-transparent"></div>
-            </div>
+                    <div className="space-y-6">
+                        {rows.map((row, rowIndex) => (
+                            <div key={rowIndex} className="relative overflow-hidden">
+                                <div className="absolute left-0 top-0 bottom-0 w-28 bg-linear-to-r from-[#FAFAFA] to-transparent z-10 pointer-events-none"></div>
+                                <div className="absolute right-0 top-0 bottom-0 w-28 bg-linear-to-l from-[#FAFAFA] to-transparent z-10 pointer-events-none"></div>
 
-            <div className="marquee-row w-full mx-auto max-w-7xl overflow-hidden relative">
-                <div className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent"></div>
-                <div className="marquee-inner marquee-reverse flex transform-gpu min-w-[200%] pt-10 pb-5">
-                    {[...cardsData, ...cardsData].map((card, index) => (
-                        <CreateCard key={index} card={card} />
-                    ))}
+                                <div className={`flex gap-6 ${row.className}`}>
+                                    {[...testimonials.slice(row.start, row.end), ...testimonials.slice(row.start, row.end)].map((testimonial, index) =>
+                                        renderCard(testimonial, index)
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-                <div className="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-white to-transparent"></div>
-            </div>
             </section>
         </>
     )
 }
-
 
 export default Testimonials

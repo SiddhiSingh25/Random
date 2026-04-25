@@ -7,12 +7,12 @@ import { FaBolt } from "react-icons/fa6";
 
 // ── Data ──
 const heroImages = [
-  { url: "images/slider/image1.jpeg", alt: "Slider Image" },
+  { url: "images/slider/slider1.png", alt: "Slider Image" },
   { url: "images/slider/image2.jpeg", alt: "Slider Image" },
-  { url: "images/slider/image3.png", alt: "Slider Image" },
-  { url: "images/slider/image4.png", alt: "Slider Image" },
+  { url: "images/slider/slider1.png", alt: "Slider Image" },
   { url: "images/slider/image5.png", alt: "Slider Image" },
-  { url: "images/slider/slider2.jpg", alt: "Slider Image" },
+  { url: "images/slider/image5.png", alt: "Slider Image" },
+  { url: "images/slider/slider2.jpeg", alt: "Slider Image" },
 ];
 
 const stats = [
@@ -57,7 +57,7 @@ const HeroSection = () => {
 
   // Auto-slide every 5s
   useEffect(() => {
-    const t = setInterval(() => setCurrent((p) => (p + 1) % heroImages.length), 3000);
+    const t = setInterval(() => setCurrent((p) => (p + 1) % heroImages.length), 4000);
     return () => clearInterval(t);
   }, []);
 
@@ -84,12 +84,22 @@ const HeroSection = () => {
           50%      { background-position: 100% 50%; }
         }
         .grad-text {
-          background: linear-gradient(110deg, #20385c, #bc8737, #2f4b75, #a78bfa);
-          background-size: 250%;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          animation: gradShift 5s ease infinite;
+        background: linear-gradient(
+  110deg,
+  #895822,
+  #a66e2b,
+  #bc8737,
+  #d8922f,
+  #e2a953,
+  #f5d08a,
+  #d8922f,
+  #bc8737
+);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradShift 10s ease-in-out infinite;
         }
 
         /* Scroll dot */
@@ -120,7 +130,7 @@ const HeroSection = () => {
         .primary-btn::after {
           content: '';
           position: absolute; inset: 0;
-          background: linear-gradient(135deg, #20385c, #bc8737);
+          background: linear-gradient(135deg, #20385c, #0f1b37);
           opacity: 0; transition: opacity 0.3s;
         }
         .primary-btn:hover::after { opacity: 1; }
@@ -128,7 +138,7 @@ const HeroSection = () => {
         .primary-btn > * { position: relative; z-index: 1; }
       `}</style>
 
-      <section className="relative h-[75vh] md:h-[88vh] overflow-hidden bg-black">
+      <section className="relative h-[88vh] md:h-[88vh] overflow-hidden bg-black">
 
         {/* ── Background images with crossfade ── */}
         {heroImages.map((img, i) => (
@@ -142,8 +152,9 @@ const HeroSection = () => {
         ))}
 
         {/* Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+       {/* Overlays */}
+<div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-black/10" />
+<div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
 
         {/* ── Content ── */}
         <div className="relative z-10 h-full flex items-center">
@@ -153,8 +164,8 @@ const HeroSection = () => {
               {/* Eyebrow badge */}
               <div className="h1 inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 mb-6">
                 <span className="relative flex h-2 w-2">
-                  <span className="ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-500" />
+                  <span className="ping absolute inline-flex h-full w-full rounded-full bg-primary-800 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-700" />
                 </span>
                 <span
                   className="text-[10px] font-semibold tracking-[0.22em] uppercase text-white cursor-pointer"
@@ -190,8 +201,8 @@ const HeroSection = () => {
 
               {/* Description */}
               <p
-                className="h4 text-gray-300 text-[0.5rem] md:text-base leading-relaxed max-w-md mb-8"
-                style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}
+                className="h4 text-gray-300 text-[0.5rem] md:text-base leading-relaxed max-w-md mb-8 font-semibold"
+                // style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}
               >
                 Get expert assistance for BIS, WPC, BEE, EPR, TEC, LMPC and other mandatory certifications with accurate documentation and faster approvals.
               </p>
@@ -203,7 +214,7 @@ const HeroSection = () => {
                   className="primary-btn flex items-center gap-2 px-7 py-3 rounded-full text-sm font-medium text-white transition-all duration-200"
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
-                    background: "linear-gradient(135deg, #20385c, #bc8737)",
+                    background: "linear-gradient(135deg, #20385c, #0f1b37)",
                     letterSpacing: "0.04em",
                   }}
                 >
@@ -256,7 +267,7 @@ const HeroSection = () => {
                 width: current === i ? "24px" : "6px",
                 height: "6px",
                 background: current === i
-                  ? "linear-gradient(90deg, #20385c, #bc8737)"
+                  ? "linear-gradient(90deg, #20385c, #0f1b37)"
                   : "rgba(255,255,255,0.3)",
               }}
             />
