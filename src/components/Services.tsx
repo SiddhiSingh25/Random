@@ -6,6 +6,8 @@ import { motion, type Variants } from "framer-motion";
 import { servicesData } from "@/data/services-data";
 import ServiceCard from "./layout/services/ServiceCard";
 import { containerVariants } from "./common/ServiceCard";
+import Header from "./common/header";
+import Heading from "./common/Heading";
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type Service = {
@@ -19,8 +21,8 @@ type ServicesProps = {
   heading?: string;
   subheading?: string;
   description?: string;
+  limit?: number;
 };
-
 // ─── Header variants ──────────────────────────────────────────────────────────
 
 const headerVariants: Variants = {
@@ -242,15 +244,17 @@ export default function Services({
   heading = "What We Offer",
   subheading = "Our Services",
   description = "We deliver end-to-end solutions that drive measurable results — from strategy and operations to digital transformation.",
+    limit,
 }: ServicesProps) {
+  const visibleServices = limit ? servicesData.slice(0, limit) : servicesData;
   return (
     <section className="relative overflow-hidden py-28 px-4 sm:px-6 lg:px-8">
       <Background />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        <SectionHeader
-          heading={heading}
-          subheading={subheading}
+        <Heading
+          label={heading}
+          title={subheading}
           description={description}
         />
 
@@ -262,7 +266,7 @@ export default function Services({
           whileInView="show"
           viewport={{ once: true, margin: "0px 0px -80px 0px" }}
         >
-          {servicesData.map((service) => (
+          {visibleServices.map((service) => (
             <ServiceCard
               key={service.id}
               id={service.id}

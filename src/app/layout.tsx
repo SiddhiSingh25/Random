@@ -3,10 +3,10 @@ import { Outfit } from "next/font/google";
 import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import QuickMessage from "@/components/QuickMessage";
 import { ToastContainer } from "react-toastify";
 import LenisScroll from "@/components/lenisScroll";
+import { Footer } from "@/components/Footer";
 
 
 
@@ -107,7 +107,7 @@ export default function RootLayout({
           pauseOnHover
         />
 
-        <Footer />
+        <Footer/>
       </body>
     </html>
   );

@@ -112,7 +112,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services", hasDropdown: true },
-  { label: "Certification Process", href: "/process" },
+  // { label: "Certification Process", href: "/process" },
   { label: "Achievements", href: "/achievements" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
@@ -264,24 +264,25 @@ export default function SheenNavbar() {
             className="flex items-center flex-shrink-0 group"
             aria-label="Eminence Global Compliance Group — Home"
           >
-            <div
-              className="
-                relative
-                w-[130px] h-[38px]
-                sm:w-[150px] sm:h-[44px]
-                lg:w-[300px] lg:h-[50px]
-                transition-transform duration-300 group-hover:scale-[1.03]
-              "
-            >
-              <Image
-                src="/images/logo.png"
-                alt="Eminence Global Compliance Group"
-                fill
-                priority
-                sizes="(max-width: 640px) 130px, (max-width: 1024px) 150px, 170px"
-                className="object-contain object-left"
-              />
-            </div>
+           <div
+  className="
+    relative
+    w-[150px] h-[48px]
+    sm:w-[190px] sm:h-[56px]
+    md:w-[220px] md:h-[62px]
+    lg:w-[320px] lg:h-[78px]
+    xl:w-[350px] xl:h-[82px]
+  "
+>
+  <Image
+    src="/images/logo.png"
+    alt="Eminence Global Compliance Group"
+    fill
+    priority
+    sizes="(max-width: 640px) 150px, (max-width: 768px) 190px, (max-width: 1024px) 220px, 320px"
+    className="object-contain object-left"
+  />
+</div>
           </Link>
 
           {/* ── Desktop Nav Links ── */}
