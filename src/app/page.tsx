@@ -20,15 +20,17 @@ export default function Home() {
   return (
     <>
       <Start />
+       <GlobalAudit/>
+       <UpdateBar/>
       <WhoWeAre />
-      <UpdateBar/>
-      <AchievementSection />
+      
+      {/* <AchievementSection /> */}
       <Services />
-      <Team limit={6} />
+      {/* <Team limit={6} /> */}
       <Testimonials />
       <OurClients/>
       <NewsLetter/>
-      <GlobalAudit/>
+     
       <Contact />
     </>
 

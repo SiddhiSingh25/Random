@@ -8,11 +8,11 @@ import { FaBolt } from "react-icons/fa6";
 // ── Data ──
 const heroImages = [
   { url: "images/slider/slider1.png", alt: "Slider Image" },
-  { url: "images/slider/image2.jpeg", alt: "Slider Image" },
   { url: "images/slider/slider1.png", alt: "Slider Image" },
-  { url: "images/slider/image5.png", alt: "Slider Image" },
-  { url: "images/slider/image5.png", alt: "Slider Image" },
-  { url: "images/slider/slider2.jpeg", alt: "Slider Image" },
+  { url: "images/slider/slider1.png", alt: "Slider Image" },
+  { url: "images/slider/slider1.png", alt: "Slider Image" },
+  { url: "images/slider/slider1.png", alt: "Slider Image" },
+  { url: "images/slider/slider1.png", alt: "Slider Image" },
 ];
 
 const stats = [
@@ -85,15 +85,10 @@ const HeroSection = () => {
         }
         .grad-text {
         background: linear-gradient(
-  110deg,
-  #895822,
-  #a66e2b,
-  #bc8737,
-  #d8922f,
-  #e2a953,
-  #f5d08a,
-  #d8922f,
-  #bc8737
+ 
+  #fff,
+  #fefefe
+
 );
   background-size: 300%;
   -webkit-background-clip: text;
@@ -153,7 +148,7 @@ const HeroSection = () => {
 
         {/* Overlays */}
        {/* Overlays */}
-<div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-black/10" />
+<div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/25 to-black/10" />
 <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
 
         {/* ── Content ── */}
@@ -178,7 +173,7 @@ const HeroSection = () => {
 
               {/* Heading */}
               <h1
-                className="h2 font-light text-white leading-tight mb-1  family-bold"
+                className="h2 font-light text-white leading-tight mb-1  "
                 style={{
                   // fontFamily: "'Poppins', sans-serif",
                   fontFamily: "'Cormorant Garamond', serif",
@@ -189,7 +184,7 @@ const HeroSection = () => {
               </h1>
 
               <h1
-                className="h3 font-semibold grad-text leading-tight mb-5 family-bold"
+                className="h3 font-semibold grad-text leading-tight mb-5 "
                 style={{
                   // fontFamily: "'Poppins', sans-serif",
                   fontFamily: "'Cormorant Garamond', serif",

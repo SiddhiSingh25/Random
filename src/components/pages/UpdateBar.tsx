@@ -135,8 +135,8 @@ const UpdateBar = () => {
       <div className="flex items-center">
         
         {/* Left Side: Static Label / Location */}
-        <div className="relative z-20 flex items-center gap-3 pl-4 pr-8 bg-primary-950 shadow-[25px_0_35px_#0f1b37]">
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:border-secondary-400/30 transition-all cursor-pointer group/loc">
+        <div className="  relative z-20 flex items-center gap-3 md:pl-4 md:pr-8 pl-1 pr-3 bg-primary-950 shadow-[25px_0_35px_#0f1b37]">
+          <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 hover:border-secondary-400/30 transition-all cursor-pointer group/loc">
             <IoLocationOutline size={14} className="text-secondary-400 group-hover/loc:scale-110 transition-transform" />
             <span className="text-white text-[0.7rem] family-bold uppercase tracking-widest">
               India
@@ -144,13 +144,13 @@ const UpdateBar = () => {
             <IoChevronDown size={10} className="text-white/40" />
           </div>
           
-          <div className="h-4 w-[1px] bg-white/10 ml-1" />
+          <div className="hidden md:flex h-4 w-[1px] bg-white/10 ml-1" />
           
           <div className="flex items-center gap-2">
             <motion.div 
                animate={{ opacity: [1, 0.4, 1], scale: [1, 1.2, 1] }} 
                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-               className="w-1.5 h-1.5 rounded-full bg-secondary-500 shadow-[0_0_10px_#d8922f]" 
+               className="  w-1.5 h-1.5 rounded-full bg-secondary-500 shadow-[0_0_10px_#d8922f]" 
             />
             <span className="text-primary-200/60 text-[0.65rem] family-mainheading uppercase tracking-tighter">Live Updates</span>
           </div>

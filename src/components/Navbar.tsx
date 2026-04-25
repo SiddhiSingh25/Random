@@ -274,7 +274,7 @@ export default function SheenNavbar() {
               "
             >
               <Image
-                src="/images/hello.png"
+                src="/images/logo.png"
                 alt="Eminence Global Compliance Group"
                 fill
                 priority
@@ -486,7 +486,7 @@ export default function SheenNavbar() {
                 >
                   <div className="relative w-[120px] h-[34px]">
                     <Image
-                      src="/images/remove.png"
+                      src="/images/logo.png"
                       alt="Eminence Global Compliance Group"
                       fill
                       sizes="120px"

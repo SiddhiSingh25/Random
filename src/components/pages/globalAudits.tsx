@@ -11,60 +11,66 @@ interface Slide {
   image: string;
 }
 
-const slides: Slide[] = [
+const slides = [
   {
     id: 1,
-    title: "Women's Fashion",
-    subtitle: "Get Special Discount Today",
-    price: 9999,
-    originalPrice: 24999,
-    discount: 60,
-    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1000&auto=format", // Women's fashion model
+    country: "South Korea",
+    clientName: "Global Tech Corp",
+    headline: "Foreign Manufacturer FMCS License Secured",
+    standard: "IS 13252 (PART 1) : 2010",
+    description: "Successfully facilitated end-to-end BIS FMCS certification for high-end server motherboards, including factory audit and sample testing coordination.",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1000&auto=format", // Factory Inspection
+    date: "MARCH 2026",
   },
   {
     id: 2,
-    title: "Men's Streetwear",
-    subtitle: "Limited Time Offer",
-    price: 2999,
-    originalPrice: 9999,
-    discount: 70,
-    image: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=1000&auto=format", // Men's casual wear
+    country: "Germany",
+    clientName: "Precision Automotive Ltd",
+    headline: "Successful BIS ISI Mark Audit Completed",
+    standard: "IS 15298 : PART 2",
+    description: "Managed the complete certification process for safety footwear. Verified compliance through rigorous on-site audit and laboratory validation.",
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1000&auto=format", // Corporate Handshake
+    date: "FEBRUARY 2026",
   },
   {
     id: 3,
-    title: "Kids Collection",
-    subtitle: "Exclusive Deal",
-    price: 4999,
-    originalPrice: 15999,
-    discount: 68,
-    image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=1000&auto=format", // Happy kids in colorful clothes
+    country: "Taiwan",
+    clientName: "Alpha Semiconductor",
+    headline: "CRS Registration for Electronics Secured",
+    standard: "IS 13252 : 2010",
+    description: "Streamlined the Compulsory Registration Scheme (CRS) for advanced computing peripherals, ensuring rapid market entry for the Indian territory.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1000&auto=format", // Electronics Lab
+    date: "JANUARY 2026",
   },
   {
     id: 4,
-    title: "Premium Beauty",
-    subtitle: "New Arrival Sale",
-    price: 8999,
-    originalPrice: 12999,
-    discount: 31,
-    image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1000&auto=format", // Makeup application
+    country: "China",
+    clientName: "Zhong Lighting Systems",
+    headline: "ISI Certification Milestone Achieved",
+    standard: "IS 10322 : PART 5",
+    description: "Directed the BIS licensing process for LED self-ballasted lamps, covering factory quality control evaluation and technical documentation.",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1000&auto=format", // Professional Meeting
+    date: "DECEMBER 2025",
   },
   {
     id: 5,
-    title: "Winter Essentials",
-    subtitle: "Best Seller Deal",
-    price: 15999,
-    originalPrice: 21999,
-    discount: 27,
-    image: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=1000&auto=format", // Winter coat model
+    country: "United Arab Emirates",
+    clientName: "Emirates Steel Ind.",
+    headline: "Product Compliance & BIS License Renewal",
+    standard: "IS 1786 : 2008",
+    description: "Successfully renewed the BIS certification for structural steel products through a comprehensive remote audit and testing protocol.",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&auto=format", // Industrial Site
+    date: "NOVEMBER 2025",
   },
   {
     id: 6,
-    title: "Evenwear Collection",
-    subtitle: "Flash Sale Today",
-    price: 7499,
-    originalPrice: 9999,
-    discount: 25,
-    image: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=1000&auto=format", // Evening dress
+    country: "Vietnam",
+    clientName: "South Asia Footwear",
+    headline: "BIS Certification for Global Export",
+    standard: "IS 6721 : 2023",
+    description: "Supported the implementation of BIS quality control orders for the footwear industry, ensuring compliance with newly updated standards.",
+    image: "https://images.unsplash.com/photo-1513135557534-682d53fd7046?w=1000&auto=format", // Manufacturing floor
+    date: "OCTOBER 2025",
   },
 ];
 
@@ -81,128 +87,120 @@ const useVisible = () => {
 };
 
 // ── Single Card — exactly like reference image ──
-const SlideCard = ({
-  slide,
-  h, m, s,
-}: {
-  slide: Slide;
-  h: string;
-  m: string;
-  s: string;
-}) => (
-  <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
+import { FaGlobe, FaCheckCircle, FaAward, FaBuilding, FaPhoneAlt, FaGlobeAmericas } from "react-icons/fa";
 
-    {/* ── TOP: tagline ── */}
-<div className="px-4 py-3 text-center border-b border-gray-100">
-  <p className="text-[10px] font-bold tracking-[0.22em] uppercase text-gray-500 relative inline-block shimmer-pink">
-    {slide.subtitle}
-  </p>
-</div>
+interface AchievementSlide {
+  id: number;
+  country: string;
+  clientName: string;
+  headline: string;
+  standard: string; // e.g., IS 13252
+  description: string;
+  image: string;
+  date: string;
+}
 
-<style>{`
-  @keyframes shimmerPink {
-    0% {
-      background-position: -200% 0;
-      text-shadow: none;
-    }
-    50% {
-      text-shadow: 0 0 5px rgba(240, 76, 156, 0.5);
-    }
-    100% {
-      background-position: 200% 0;
-      text-shadow: none;
-    }
-  }
-  
-  .shimmer-pink {
-    background: linear-gradient(
-      90deg,
-      #9ca3af 0%,
-      #9ca3af 30%,
-      #dc586d 50%,
-      #f472b6 70%,
-      #9ca3af 100%
-    );
-    background-size: 200% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: shimmerPink 2.5s linear infinite;
-  }
-`}</style>
+const SlideCard = ({ slide }: { slide: AchievementSlide }) => (
+  <div className="bg-white rounded-xl overflow-hidden border border-primary-100 shadow-md hover:shadow-2xl transition-all duration-500 group flex flex-col h-full">
+    
+    {/* 1. TOP STRIP: Country & Achievement Status */}
+    <div className="px-5 py-3 bg-primary-950 flex justify-between items-center">
+      <div className="flex items-center gap-2">
+        <FaGlobeAmericas className="text-secondary-400 text-xs" />
+        <span className="text-white text-[10px] tracking-[0.2em] family-semibold uppercase">
+          {slide.country}
+        </span>
+      </div>
+      <div className="flex items-center gap-1.5">
+        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+        <span className="text-[10px] text-primary-200 family-medium uppercase">Audit Verified</span>
+      </div>
+    </div>
 
-    {/* ── MIDDLE: image — shorter height ── */}
-    <div className="relative overflow-hidden" style={{ height: "250px" }}>
+    {/* 2. CENTER: Featured Audit Image with Watermark */}
+    <div className="relative h-60 overflow-hidden bg-primary-900">
       <img
         src={slide.image}
-        alt={slide.title}
-        className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-103"
+        alt={slide.headline}
+        className="w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-110"
       />
-
-      {/* Very light gradient only at bottom of image */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-
-      {/* ── SALE + % text on image bottom-left like reference ── */}
-      <div className="absolute bottom-3 left-4">
-        <div className="flex items-end gap-1 leading-none">
-          <span
-            className="text-white font-black leading-none"
-            style={{
-              fontSize: "clamp(2rem, 5vw, 2.8rem)",
-              fontFamily: "'Playfair Display', serif",
-              textShadow: "0 2px 8px rgba(0,0,0,0.3)",
-            }}
-          >
-            SALE
+      
+      {/* 3. Logo/Client Watermark Overlay */}
+      <div className="absolute top-4 left-4">
+        <div className="bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded flex items-center gap-2">
+          <FaBuilding className="text-white/70 text-xs" />
+          <span className="text-white/80 text-[10px] family-medium tracking-wider uppercase">
+            {slide.clientName}
           </span>
         </div>
-        <div className="flex items-start gap-1 leading-none mt-0.5">
-          <span
-            className="text-white font-black leading-none"
-            style={{
-              fontSize: "clamp(2.2rem, 6vw, 3.2rem)",
-              fontFamily: "'Playfair Display', serif",
-              textShadow: "0 2px 8px rgba(0,0,0,0.3)",
-            }}
-          >
-            {slide.discount}
-          </span>
-          <div className="flex flex-col mt-1">
-            <span className="text-white font-bold text-sm leading-none">%</span>
-            <span className="text-white font-bold text-sm leading-none">OFF</span>
-          </div>
+      </div>
+
+      {/* Elegant Gradient Scrim */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary-950 via-transparent to-transparent opacity-60" />
+      
+      {/* Bottom badge on Image */}
+      <div className="absolute bottom-4 left-5">
+        <div className="bg-secondary-600 text-white text-[9px] family-bold px-2 py-1 rounded shadow-lg uppercase tracking-widest">
+          {slide.standard}
         </div>
       </div>
     </div>
 
-    {/* ── BOTTOM: price + timer + CTA ── */}
-    <div className="px-4 pt-3 pb-4">
-
-      {/* Product name */}
-      <p
-        className="text-gray-800 font-semibold text-sm line-clamp-1 mb-2 font-google"
-    
-      >
-        {slide.title}
-      </p>
-
-      {/* Price row */}
-      <div className="flex items-center gap-2 mb-3">
-        <span className="text-gray-900 text-base font-bold">
-          ₹{slide.price.toLocaleString()}
-        </span>
-        <span className="text-gray-400 text-xs line-through">
-          ₹{slide.originalPrice.toLocaleString()}
-        </span>
-        <span className="ml-auto text-[10px] font-bold font-google text-pink-600 bg-pink-50 px-2 py-0.5 rounded-[15px] border border-pink-100">
-          Save {slide.discount}%
-        </span>
+    {/* 4 & 5. CONTENT SECTION */}
+    <div className="p-6 flex-grow flex flex-col">
+      <div className="mb-3">
+        <h3 className="text-primary-900 family-mainheading text-lg md:text-xl leading-snug group-hover:text-primary-600 transition-colors">
+          {slide.headline}
+        </h3>
       </div>
 
- 
+      <p className="text-gray-600 family-regular text-sm leading-relaxed mb-6">
+        Successfully facilitated the <span className="family-semibold text-primary-800">BIS Certification</span> for {slide.clientName} in {slide.country}. 
+        Complete factory audit, documentation, and sample testing were managed under {slide.standard}, ensuring 100% regulatory compliance for the Indian market.
+      </p>
+
+      {/* Decorative Compliance Seal Motif */}
+      <div className="mt-auto pt-6 border-t border-primary-50 flex items-center justify-between">
+        <div className="flex flex-col">
+          <span className="text-[10px] text-primary-400 uppercase tracking-widest family-bold">Completion Date</span>
+          <span className="text-primary-800 family-semibold text-xs">{slide.date}</span>
+        </div>
+        
+        {/* Certification Icon Group */}
+        <div className="flex gap-2 opacity-40 group-hover:opacity-100 transition-opacity">
+          <FaCheckCircle className="text-primary-600 text-xl" />
+          <FaAward className="text-secondary-600 text-xl" />
+        </div>
+      </div>
+    </div>
+
+    {/* 6. BOTTOM INFO STRIP */}
+    <div className="bg-primary-50 px-5 py-3 flex items-center justify-between border-t border-primary-100">
+      <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1.5">
+          <FaGlobe className="text-primary-400 text-[10px]" />
+          <span className="text-[10px] text-primary-700 family-medium">www.yourconsultancy.com</span>
+        </div>
+      </div>
+      <div className="flex items-center gap-1.5">
+        <FaPhoneAlt className="text-secondary-600 text-[10px]" />
+        <span className="text-[10px] text-primary-900 family-bold tracking-tighter">+91 000-000-0000</span>
+      </div>
     </div>
   </div>
 );
+
+/** * PLACEHOLDER CONTENT SUGGESTION:
+ * slide: {
+ * country: "South Korea",
+ * clientName: "Samsung Electronics",
+ * headline: "Foreign Manufacturer FMCS License Secured",
+ * standard: "IS 13252 (PART 1): 2010",
+ * description: "End-to-end audit support...",
+ * image: "/images/factory-audit.jpg",
+ * date: "MARCH 2024"
+ * }
+ */
 
 // ── Main Component ──
 const GlobalAudit = () => {
@@ -255,29 +253,25 @@ const GlobalAudit = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
 
           {/* ── Section Header ── */}
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-3">
-              <div
-                className="w-[3px] h-8 rounded-full"
-                style={{ background: "linear-gradient(180deg,#db2777,#9333ea)" }}
-              />
-              <div> 
-                <h2
-                  className="text-2xl md:text-3xl font-light text-gray-900 font-google"
-                 
-                >
-                  Deals of the{" "}
-                  <span className="text-transparent font-bold  bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600">
-                    Day
-                  </span>
-                </h2>
-                <p className="text-[11px] text-gray-400 font-medium tracking-wide hidden md:block mt-0.5">
-                  Flash sale · Prices drop every 24 hours
-                </p>
-              </div>
-            </div>
-
-          </div>
+         <div className="flex items-center justify-between mb-8">
+  <div className="flex items-center gap-4">
+    <div
+      className="w-[3px] h-10 rounded-full"
+      style={{ background: "linear-gradient(180deg,#1d4ed8,#0f172a)" }}
+    />
+    <div>
+      <h2 className="text-2xl md:text-4xl font-light text-primary-950 family-mainheading leading-tight">
+        Our Signature{" "}
+        <span className="text-primary-600 family-bold">
+          Compliance Services
+        </span>
+      </h2>
+      <p className="text-[12px] md:text-sm text-gray-500 family-medium tracking-wide mt-1">
+        BIS Certifications · Global Market Approvals · Regulatory Documentation
+      </p>
+    </div>
+  </div>
+</div>
 
           {/* ── Slider ── */}
           <div
@@ -298,7 +292,7 @@ const GlobalAudit = () => {
                       width: `calc(${100 / visible}% - ${(4 * (visible - 1)) / visible}px)`,
                     }}
                   >
-                    <SlideCard slide={slide} h={h} m={m} s={s} />
+                    <SlideCard slide={slide} />
                   </div>
                 ))}
               </div>
@@ -310,14 +304,14 @@ const GlobalAudit = () => {
                 <button
                   onClick={() => goTo(cur - 1)}
                   disabled={cur === 0}
-                  className="absolute -left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 disabled:opacity-0 shadow-md hover:border-pink-300"
+                  className="absolute -left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 disabled:opacity-0 shadow-md hover:border-primary-300"
                 >
                   <FaChevronLeft size={12} className="text-gray-600" />
                 </button>
                 <button
                   onClick={() => goTo(cur + 1)}
                   disabled={cur >= maxIdx}
-                  className="absolute -right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 disabled:opacity-0 shadow-md hover:border-pink-300"
+                  className="absolute -right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 disabled:opacity-0 shadow-md hover:border-primary-300"
                 >
                   <FaChevronRight size={12} className="text-gray-600" />
                 </button>
