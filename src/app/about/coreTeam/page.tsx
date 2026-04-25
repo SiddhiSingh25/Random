@@ -141,38 +141,7 @@ const TeamSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header Section */}
-        <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={staggerContainer}
-          className="text-center max-w-3xl mx-auto mb-20"
-        >
-          <motion.div 
-            variants={fadeInUp} 
-            className="inline-flex items-center gap-2 bg-indigo-100/80 backdrop-blur-sm px-4 py-1.5 rounded-full mb-4"
-          >
-            <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full animate-pulse" />
-            <span className="text-indigo-700 font-semibold text-sm uppercase tracking-wider">
-              Leadership Team
-            </span>
-          </motion.div>
-          
-          <motion.h2 
-            variants={fadeInUp} 
-            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-800 via-slate-800 to-indigo-600 bg-clip-text text-transparent mt-2 mb-4"
-          >
-            Meet Our Experts
-          </motion.h2>
-          
-          <motion.p 
-            variants={fadeInUp} 
-            className="text-slate-600 text-lg max-w-2xl mx-auto"
-          >
-            Dedicated professionals committed to your success, bringing decades of combined expertise
-          </motion.p>
-        </motion.div>
-        
+  
         {/* Team Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
           {team.map((member, index) => (

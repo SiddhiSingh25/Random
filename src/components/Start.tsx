@@ -290,8 +290,8 @@ const HeroSection = () => {
                   <svg width="0" height="0" className="absolute">
                     <defs>
                       <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#20385c" />
-                        <stop offset="100%" stopColor="#bc8737" />
+                        <stop offset="0%" stopColor="#2b3f6c" />
+                        <stop offset="100%" stopColor="#0f1b37" />
                       </linearGradient>
                     </defs>
                   </svg>

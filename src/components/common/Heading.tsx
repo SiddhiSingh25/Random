@@ -78,7 +78,7 @@ const HairlineRight = () => (
 const Heading = ({ label, title, description }: HeadingProps) => {
   return (
     <motion.div
-      className="relative text-center px-4 sm:px-8 md:px-16 lg:px-24"
+      className="relative text-center px-4 sm:px-8 md:px-16 lg:px-24   py-10"
       variants={wrapperVariants}
       initial="hidden"
       whileInView="show"

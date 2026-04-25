@@ -4,20 +4,22 @@ import TeamSection from './coreTeam/page'
 import WhoWeAre from './whoWeAre/page'
 import Header from '@/components/common/header'
 import PageHeader from '@/components/common/header'
+import Heading from '@/components/common/Heading'
 
 const page = () => {
   return (
     <>
-    <PageHeader
-  label="Our Story" 
-  title="Driving Innovation Since 2004" 
-  description="Learn about our journey, our values, and the people behind our success."
-/>
-    
-     <WhoWeAre/>
-    <WhyChooseUs/>
+
+      <Heading
+        label="Our Story"
+        title="Driving Innovation Since 2004"
+        description="Learn about our journey, our values, and the people behind our success."
+      />
+
+      <WhoWeAre />
+      <WhyChooseUs />
     </>
-   
+
   )
 }
 
