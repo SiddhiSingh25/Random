@@ -1,403 +1,662 @@
-// "use client";
-
-// import { useState } from "react";
-// import Link from "next/link";
-// import Image from "next/image";
-// import { motion, AnimatePresence, type Variants } from "framer-motion";
-// import { MdEmail, MdChevronRight } from "react-icons/md";
-// import { IoIosCall } from "react-icons/io";
-// import { IoLogoLinkedin } from "react-icons/io5";
-// import { FaInstagram } from "react-icons/fa";
-// import { FaXTwitter, FaChevronDown } from "react-icons/fa6";
-// import { MdOutlineMailOutline } from "react-icons/md";
-// import { usePathname } from "next/navigation";
-
-// // --- Data for all Dropdowns ---
-// const dropdownData: Record<string, { title: string; items: string[] }[]> = {
-//   "Our Services": [
-//     { title: "LICENCE", items: ["BIS (ISI MARK)", "DOMESTIC PRODUCT", "BIS SCHEME X"] },
-//     { title: "REGISTRATION", items: ["BIS (CRS)", "WPC-ETA", "BEE CERTIFICATION"] },
-//     { title: "AUXILIARY", items: ["TRAINING", "IMPORT/EXPORT", "ISO REG"] },
-//   ],
-//   "Blogs": [
-//     { title: "LATEST", items: ["Industry News", "Tech Updates"] },
-//     { title: "GUIDES", items: ["Compliance Guide", "How to Apply"] },
-//   ],
-//   "Updates": [
-//     { title: "NOTIFICATIONS", items: ["Government Circulars", "New Rules"] },
-//   ],
-// };
-
-// export default function Navbar() {
-//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-//   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-//   const pathname = usePathname();
-
-//   const fadeDown: Variants = {
-//     hidden: { opacity: 0, y: -16 },
-//     show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-//   };
-
-//   const dropdownVariants: Variants = {
-//     hidden: { opacity: 0, y: 10, scale: 0.98 },
-//     show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.2, ease: "easeOut" } },
-//     exit: { opacity: 0, y: 10, transition: { duration: 0.15 } }
-//   };
-
-//   const links: [string, string][] = [
-//     ["Home", "/"],
-//     ["About Us", "/about"],
-//     ["Our Services", "/services"],
-//     ["Team", "/team"],
-//     // ["Blogs", "/blogs"],
-
-//     ["Updates", "/Updates"],
-//      ["FAQ's", "/faq"],
-//   ];
-
-//   return (
-//     <>
-//       {/* Top Banner */}
-//       <motion.div variants={fadeDown} initial="hidden" animate="show" className="w-full bg-primary-800 text-white flex flex-col md:flex-row justify-between items-center px-6 md:px-16 lg:px-24 xl:px-32 py-2">
-//         <p className="text-sm flex gap-4">
-//           <a href="mailto:unmatchedconsultancy@gmail.com" className="inline-flex items-center gap-1 hover:text-secondary-500 transition">
-//             <MdEmail className="text-secondary-500 text-xl" /> unmatchedconsultancy@gmail.com
-//           </a>
-//           <a href="tel:+919910678889" className="inline-flex items-center gap-1 hover:text-secondary-500 transition">
-//             <IoIosCall className="text-secondary-500 text-xl" /> +91 9910678889
-//           </a>
-//         </p>
-//         <div className="hidden md:flex items-center gap-2">
-//           {[{ icon: IoLogoLinkedin, href: "#" }, { icon: MdOutlineMailOutline, href: "#" }, { icon: FaXTwitter, href: "#" }, { icon: FaInstagram, href: "#" }].map(({ icon: Icon, href }, i) => (
-//             <Link key={i} href={href}><Icon className="text-secondary-500 text-lg hover:text-secondary-600 transition" /></Link>
-//           ))}
-//         </div>
-//       </motion.div>
-
-//       {/* Navbar */}
-//       <motion.nav variants={fadeDown} initial="hidden" animate="show" className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 px-6 md:px-16 lg:px-24 xl:px-32">
-//         <div className="flex items-center justify-between h-[72px]">
-//          <Link
-//   href="/"
-//   className="relative h-32 w-32 border-2 border-amber-700 flex items-center justify-center overflow-hidden"
-// >
-//   <Image
-//     src="/images/hello.png"
-//     alt="Logo"
-//     fill
-//     priority
-//     className="object-cover"
-//   />
-// </Link>
-
-//           {/* Desktop Menu */}
-//           <ul className="hidden md:flex items-center gap-6 font-semibold text-[13px] lg:text-sm">
-//             {links.map(([label, href]) => {
-//               const isActive = pathname === href;
-//               const hasDropdown = label !== "Home" && dropdownData[label];
-
-//               return (
-//                 <li 
-//                   key={label} 
-//                   className="relative group py-6"
-//                   onMouseEnter={() => hasDropdown && setActiveDropdown(label)}
-//                   onMouseLeave={() => setActiveDropdown(null)}
-//                 >
-//                   <Link
-//                     href={href}
-//                     className={`flex items-center gap-1 transition ${isActive || activeDropdown === label ? "text-secondary-600" : "text-gray-700 hover:text-secondary-600"}`}
-//                   >
-//                     {label}
-//                     {hasDropdown && <FaChevronDown className={`text-[10px] transition-transform ${activeDropdown === label ? 'rotate-180' : ''}`} />}
-//                   </Link>
-//                   <span className={`absolute left-0 bottom-4 h-[2px] w-0 transition-all duration-300 group-hover:w-full bg-secondary-600 ${isActive ? 'w-full' : ''}`} />
-
-//                   {/* Dynamic Mega Dropdown */}
-//                   <AnimatePresence>
-//                     {activeDropdown === label && hasDropdown && (
-//                       <motion.div
-//                         variants={dropdownVariants}
-//                         initial="hidden"
-//                         animate="show"
-//                         exit="exit"
-//                         className="absolute top-full left-1/2 -translate-x-1/2 min-w-[500px] max-w-[90vw] bg-white shadow-2xl rounded-xl border border-gray-100 overflow-hidden"
-//                       >
-//                         <div className={`grid grid-cols-${Math.min(dropdownData[label].length, 3)}`}>
-//                           {dropdownData[label].map((group, idx) => (
-//                             <div key={idx} className="border-r border-gray-50 last:border-none">
-//                               <h3 className={`px-5 py-3 text-[11px] font-bold tracking-widest text-white ${idx % 2 === 0 ? 'bg-primary-800' : 'bg-secondary-600'}`}>
-//                                 {group.title}
-//                               </h3>
-//                               <ul className="p-3 space-y-0.5">
-//                                 {group.items.map((item) => (
-//                                   <li key={item}>
-//                                     <Link href={href} className="flex items-center gap-2 px-3 py-1.5 text-gray-600 hover:text-secondary-600 hover:bg-gray-50 rounded-md transition-all text-[12px] group/item">
-//                                       <MdChevronRight className="text-secondary-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
-//                                       {item}
-//                                     </Link>
-//                                   </li>
-//                                 ))}
-//                               </ul>
-//                             </div>
-//                           ))}
-//                         </div>
-//                       </motion.div>
-//                     )}
-//                   </AnimatePresence>
-//                 </li>
-//               );
-//             })}
-
-//             <li>
-//               <Link href="/contact" className="inline-flex items-center rounded-full bg-primary-900 px-5 py-2 text-white text-sm font-semibold hover:bg-secondary-600 transition shadow-lg shadow-primary-900/20">
-//                 Contact Us
-//               </Link>
-//             </li>
-//           </ul>
-
-//           <button className="md:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-//             <svg width="26" height="26" viewBox="0 0 30 30"><path d="M3 7h24M3 15h24M3 23h24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-//           </button>
-//         </div>
-//       </motion.nav>
-//     </>
-//   );
-// }
-
-
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence, Variants } from "framer-motion";
-import { MdEmail, MdChevronRight, MdClose, MdMenu } from "react-icons/md";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  MdEmail,
+  MdChevronRight,
+  MdClose,
+  MdMenu,
+  MdExpandMore,
+} from "react-icons/md";
 import { IoIosCall } from "react-icons/io";
 import { IoLogoLinkedin } from "react-icons/io5";
-import { FaInstagram, FaXTwitter, FaChevronDown } from "react-icons/fa6";
-import { BsClock } from "react-icons/bs";
+import { FaInstagram, FaXTwitter } from "react-icons/fa6";
+import { BsClock, BsShieldCheck } from "react-icons/bs";
+import { HiOutlineDocumentCheck, HiOutlineGlobeAlt } from "react-icons/hi2";
+import {
+  TbCertificate,
+  TbShieldStar,
+  TbAtom,
+  TbRecycle,
+  TbWeight,
+  TbFlame,
+  TbDiamond,
+} from "react-icons/tb";
 
-// --- Types & Data ---
-interface DropdownItem {
-  title: string;
-  items: string[];
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+interface ServiceItem {
+  label: string;
+  icon: React.ElementType;
+  href: string;
+  tag?: string;
 }
 
-const dropdownData: Record<string, DropdownItem[]> = {
-  "Our Services": [
-    { title: "LICENCE", items: ["BIS (ISI MARK)", "DOMESTIC PRODUCT", "BIS SCHEME X"] },
-    { title: "REGISTRATION", items: ["BIS (CRS)", "WPC-ETA", "BEE CERTIFICATION"] },
-    { title: "AUXILIARY", items: ["TRAINING", "IMPORT/EXPORT", "ISO REG"] },
-  ],
-  "Updates": [
-    { title: "NOTIFICATIONS", items: ["Government Circulars", "New Rules"] },
-  ],
-};
+interface ServiceGroup {
+  category: string;
+  items: ServiceItem[];
+}
+
+// ─── Data ─────────────────────────────────────────────────────────────────────
+
+const serviceGroups: ServiceGroup[] = [
+  {
+    category: "BIS Certifications",
+    items: [
+      {
+        label: "BIS Certification (Foreign Manufacturer)",
+        icon: HiOutlineGlobeAlt,
+        href: "/services/bis-foreign",
+        tag: "Popular",
+      },
+      {
+        label: "ISI Mark Certification",
+        icon: TbShieldStar,
+        href: "/services/isi-mark",
+      },
+      {
+        label: "BIS CRS Registration",
+        icon: TbCertificate,
+        href: "/services/bis-crs",
+      },
+    ],
+  },
+  {
+    category: "Regulatory Approvals",
+    items: [
+      {
+        label: "WPC Approval",
+        icon: TbAtom,
+        href: "/services/wpc",
+      },
+      {
+        label: "TEC Certification",
+        icon: BsShieldCheck,
+        href: "/services/tec",
+      },
+      {
+        label: "PESO Approval",
+        icon: TbFlame,
+        href: "/services/peso",
+      },
+    ],
+  },
+  {
+    category: "Registrations",
+    items: [
+      {
+        label: "EPR Registration",
+        icon: TbRecycle,
+        href: "/services/epr",
+        tag: "New",
+      },
+      {
+        label: "LMPC Registration",
+        icon: TbWeight,
+        href: "/services/lmpc",
+      },
+      {
+        label: "Hallmark Registration",
+        icon: TbDiamond,
+        href: "/services/hallmark",
+      },
+    ],
+  },
+];
 
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Our Services", href: "/services" },
-  { label: "Team", href: "/team" },
-  { label: "Updates", href: "/updates" },
-  { label: "FAQ's", href: "/faq" },
+  { label: "Services", href: "/services", hasDropdown: true },
+  { label: "Certification Process", href: "/process" },
+  { label: "Achievements", href: "/achievements" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
-// --- Animation Variants ---
-const menuVariants: Variants = {
-  closed: { opacity: 0, scale: 0.95, y: -20 },
-  open: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 30 } },
-};
+const socialLinks = [
+  { icon: IoLogoLinkedin, href: "https://linkedin.com" },
+  { icon: FaXTwitter, href: "https://twitter.com" },
+  { icon: FaInstagram, href: "https://instagram.com" },
+];
 
-export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+// ─── Framer variants ───────────────────────────────────────────────────────────
+
+const megaMenuVariants = {
+  hidden: { opacity: 0, y: 12, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { type: "spring", stiffness: 380, damping: 32 },
+  },
+  exit: { opacity: 0, y: 8, scale: 0.98, transition: { duration: 0.15 } },
+} as const;
+
+const drawerVariants = {
+  hidden: { x: "-100%" },
+  visible: {
+    x: 0,
+    transition: { type: "spring", stiffness: 320, damping: 38 },
+  },
+  exit: { x: "-100%", transition: { duration: 0.22, ease: "easeInOut" } },
+} as const;
+
+const accordionVariants = {
+  hidden: { height: 0, opacity: 0 },
+  visible: {
+    height: "auto",
+    opacity: 1,
+    transition: { duration: 0.28, ease: "easeOut" },
+  },
+  exit: {
+    height: 0,
+    opacity: 0,
+    transition: { duration: 0.2, ease: "easeIn" },
+  },
+} as const;
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+export default function SheenNavbar() {
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const desktopServicesRef = useRef<HTMLLIElement>(null);
+  const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Close mobile menu on route change
-  useEffect(() => setIsMobileMenuOpen(false), [pathname]);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
+  useEffect(() => {
+    setIsMobileOpen(false);
+    setMobileServicesOpen(false);
+  }, [pathname]);
 
-  const socialLinks = [
-    { icon: IoLogoLinkedin, href: "https://linkedin.com" },
-    { icon: FaXTwitter, href: "https://twitter.com" },
-    { icon: FaInstagram, href: "https://instagram.com" },
-  ];
+  useEffect(() => {
+    document.body.style.overflow = isMobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileOpen]);
+
+  const handleServiceMouseEnter = () => {
+    if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+    setServicesOpen(true);
+  };
+  const handleServiceMouseLeave = () => {
+    hoverTimeout.current = setTimeout(() => setServicesOpen(false), 120);
+  };
 
   return (
-    <header className="relative w-full">
-      {/* Top Banner - Hidden on very small screens for better vertical space */}
-      <div className="hidden sm:flex w-full bg-[#162744] text-slate-200 py-3 px-6 lg:px-20 justify-between items-center text-[11px] uppercase tracking-widest border-b border-white/10 family-medium">
-        <div className="flex gap-8 items-center">
-          <a href="mailto:info@eminenceglobal.com" className="flex items-center gap-2 hover:text-[#bc8737] transition-colors">
-            <MdEmail className="text-[#bc8737] text-sm" /> info@eminenceglobal.com
-          </a>
-          <a href="tel:+919910678889" className="flex items-center gap-2 hover:text-[#bc8737] transition-colors">
-            <IoIosCall className="text-[#bc8737] text-sm" /> +91 9910678889
-          </a>
-          <div className="hidden lg:flex items-center gap-2 text-slate-400">
-            <BsClock className="text-[#bc8737] text-sm" /> Mon - Sat: 10:00 AM - 6:30 PM
-          </div>
-        </div>
+    <header className="relative w-full font-sans">
 
-        <div className="flex items-center gap-6">
-          <span className="hidden xl:inline-block text-[#bc8737] border-r border-white/20 pr-6 mr-2">
-            Global Regulatory & Certification Experts
+      {/* ── Top Banner ──────────────────────────────────────────────────────── */}
+      <div className="hidden sm:flex w-full bg-[#0d1f3c] text-slate-300 py-2.5 px-6 lg:px-16 justify-between items-center text-[10.5px] uppercase tracking-widest border-b border-white/5">
+        <div className="flex gap-7 items-center">
+          <a
+            href="mailto:info@eminencecompliance.com"
+            className="flex items-center gap-2 hover:text-[#c9a94e] transition-colors duration-200"
+          >
+            <MdEmail className="text-[#c9a94e] text-sm" />
+            info@eminencecompliance.com
+          </a>
+          <a
+            href="tel:+917428555852"
+            className="flex items-center gap-2 hover:text-[#c9a94e] transition-colors duration-200"
+          >
+            <IoIosCall className="text-[#c9a94e] text-sm" />
+            +91 74285 55852
+          </a>
+          <span className="hidden lg:flex items-center gap-2 text-slate-500">
+            <BsClock className="text-[#c9a94e] text-sm" />
+            Mon–Sat: 10:00 AM – 6:30 PM
           </span>
-          <div className="flex items-center gap-4">
-            {socialLinks.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={i}
-                  href={item.href}
-                  target="_blank"
-                  className="hover:text-[#bc8737] transition-all hover:-translate-y-0.5"
-                >
-                  <Icon size={14} />
-                </Link>
-              );
-            })}
-          </div>
+        </div>
+        <div className="flex items-center gap-5">
+          <span className="hidden xl:inline text-[#c9a94e]/80 border-r border-white/10 pr-5 mr-1 font-medium tracking-wider">
+            India's Trusted Regulatory &amp; BIS Experts
+          </span>
+          {socialLinks.map(({ icon: Icon, href }, i) => (
+            <Link
+              key={i}
+              href={href}
+              target="_blank"
+              className="text-slate-400 hover:text-[#c9a94e] transition-all hover:-translate-y-0.5 duration-200"
+            >
+              <Icon size={13} />
+            </Link>
+          ))}
         </div>
       </div>
 
-      {/* Main Navigation */}
-      <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-xl border-b border-slate-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      {/* ── Main Nav ────────────────────────────────────────────────────────── */}
+      <nav
+        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-md shadow-[0_4px_24px_rgba(13,31,60,0.09)]"
+            : "bg-white border-b border-slate-100"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-5 lg:px-10 h-[70px] flex items-center justify-between gap-6">
 
-          {/* Logo Section */}
-          <Link href="/" className="relative flex items-center group">
-            <div className="relative h-12 w-32 transition-transform duration-300 group-hover:scale-105">
+          {/* ── Logo ── */}
+          {/*
+           * Responsive sizing via Tailwind:
+           *   mobile  → 130 × 38 px
+           *   sm/md   → 150 × 44 px
+           *   lg+     → 170 × 50 px
+           * The `object-contain object-left` keeps the image sharp and left-anchored
+           * at every size without any cropping.
+           * Replace the src below with your actual logo path, e.g. "/images/logo.png"
+           */}
+          <Link
+            href="/"
+            className="flex items-center flex-shrink-0 group"
+            aria-label="Eminence Global Compliance Group — Home"
+          >
+            <div
+              className="
+                relative
+                w-[130px] h-[38px]
+                sm:w-[150px] sm:h-[44px]
+                lg:w-[300px] lg:h-[50px]
+                transition-transform duration-300 group-hover:scale-[1.03]
+              "
+            >
               <Image
                 src="/images/hello.png"
-                alt="Unmatched Consultancy Logo"
+                alt="Eminence Global Compliance Group"
                 fill
                 priority
-                className="object-contain"
+                sizes="(max-width: 640px) 130px, (max-width: 1024px) 150px, 170px"
+                className="object-contain object-left"
               />
             </div>
           </Link>
 
-          {/* Desktop Menu */}
-          <ul className="hidden lg:flex items-center gap-1">
-            {navLinks.map(({ label, href }) => {
-              const isActive = pathname === href;
-              const hasDropdown = !!dropdownData[label];
+          {/* ── Desktop Nav Links ── */}
+          <ul className="hidden lg:flex items-center gap-0.5">
+            {navLinks.map(({ label, href, hasDropdown }) => {
+              const isActive =
+                pathname === href ||
+                (hasDropdown && pathname.startsWith("/services"));
+
+              if (hasDropdown) {
+                return (
+                  <li
+                    key={label}
+                    ref={desktopServicesRef}
+                    className="relative"
+                    onMouseEnter={handleServiceMouseEnter}
+                    onMouseLeave={handleServiceMouseLeave}
+                  >
+                    <Link
+                      href={href}
+                      className={`flex items-center gap-1 px-3.5 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-200 ${
+                        isActive
+                          ? "text-[#0d1f3c] bg-slate-100"
+                          : "text-slate-600 hover:text-[#0d1f3c] hover:bg-slate-50"
+                      }`}
+                    >
+                      {label}
+                      <MdExpandMore
+                        className={`text-base transition-transform duration-300 ${
+                          servicesOpen ? "rotate-180 text-[#c9a94e]" : ""
+                        }`}
+                      />
+                    </Link>
+
+                    {/* Mega Menu */}
+                    <AnimatePresence>
+                      {servicesOpen && (
+                        <motion.div
+                          variants={megaMenuVariants}
+                          initial="hidden"
+                          animate="visible"
+                          exit="exit"
+                          className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[700px]"
+                          onMouseEnter={handleServiceMouseEnter}
+                          onMouseLeave={handleServiceMouseLeave}
+                        >
+                          {/* Pointer */}
+                          <div className="absolute top-[5px] left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-l border-t border-slate-100 rotate-45 z-10" />
+
+                          <div className="relative z-20 bg-white rounded-2xl shadow-[0_20px_60px_rgba(13,31,60,0.15)] border border-slate-100 overflow-hidden">
+                            {/* Header strip */}
+                            <div className="bg-[#0d1f3c] px-7 py-4 flex items-center justify-between">
+                              <div>
+                                <p className="text-white text-sm font-bold tracking-wide">
+                                  Our Services
+                                </p>
+                                <p className="text-slate-400 text-[11px] tracking-wider mt-0.5">
+                                  End-to-end regulatory compliance solutions
+                                </p>
+                              </div>
+                              <Link
+                                href="/services"
+                                className="text-[#c9a94e] text-xs font-semibold tracking-widest uppercase flex items-center gap-1 hover:gap-2 transition-all duration-200"
+                              >
+                                View All <MdChevronRight />
+                              </Link>
+                            </div>
+
+                            {/* Service groups */}
+                            <div className="grid grid-cols-3 divide-x divide-slate-50 p-1">
+                              {serviceGroups.map((group) => (
+                                <div key={group.category} className="px-3 py-4">
+                                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 px-3 mb-3">
+                                    {group.category}
+                                  </p>
+                                  <ul className="space-y-0.5">
+                                    {group.items.map((item) => {
+                                      const Icon = item.icon;
+                                      return (
+                                        <li key={item.label}>
+                                          <Link
+                                            href={item.href}
+                                            className="group/item flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150"
+                                          >
+                                            <span className="w-7 h-7 rounded-lg bg-slate-100 group-hover/item:bg-[#0d1f3c] flex items-center justify-center transition-colors duration-200 flex-shrink-0">
+                                              <Icon className="text-slate-500 group-hover/item:text-[#c9a94e] text-sm transition-colors duration-200" />
+                                            </span>
+                                            <span className="flex-1 text-[12.5px] text-slate-600 group-hover/item:text-[#0d1f3c] font-medium leading-snug">
+                                              {item.label}
+                                            </span>
+                                            {item.tag && (
+                                              <span
+                                                className={`text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full ${
+                                                  item.tag === "New"
+                                                    ? "bg-emerald-50 text-emerald-600"
+                                                    : "bg-amber-50 text-amber-600"
+                                                }`}
+                                              >
+                                                {item.tag}
+                                              </span>
+                                            )}
+                                          </Link>
+                                        </li>
+                                      );
+                                    })}
+                                  </ul>
+                                </div>
+                              ))}
+                            </div>
+
+                            {/* Footer CTA */}
+                            <div className="bg-slate-50/70 border-t border-slate-100 px-7 py-3.5 flex items-center justify-between">
+                              <p className="text-slate-500 text-[11.5px]">
+                                Need guidance choosing the right certification?
+                              </p>
+                              <Link
+                                href="/contact"
+                                className="text-[11.5px] font-bold text-[#0d1f3c] hover:text-[#c9a94e] transition-colors flex items-center gap-1"
+                              >
+                                Talk to an expert <MdChevronRight />
+                              </Link>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                );
+              }
 
               return (
-                <li
-                  key={label}
-                  className="relative px-3 py-7"
-                  onMouseEnter={() => hasDropdown && setActiveDropdown(label)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
+                <li key={label}>
                   <Link
                     href={href}
-                    className={`flex items-center gap-1.5 text-sm font-semibold transition-all rounded-lg px-3 py-2 
-                      ${isActive ? "text-amber-600 bg-amber-50" : "text-slate-600 hover:text-amber-600 hover:bg-slate-50"}`}
+                    className={`flex items-center px-3.5 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-200 ${
+                      isActive
+                        ? "text-[#0d1f3c] bg-slate-100"
+                        : "text-slate-600 hover:text-[#0d1f3c] hover:bg-slate-50"
+                    }`}
                   >
                     {label}
-                    {hasDropdown && (
-                      <FaChevronDown
-                        className={`text-[10px] transition-transform duration-300 ${activeDropdown === label ? 'rotate-180' : ''}`}
-                      />
-                    )}
                   </Link>
-
-                  {/* Desktop Mega Dropdown */}
-                  <AnimatePresence>
-                    {activeDropdown === label && hasDropdown && (
-                      <motion.div
-                        initial="closed"
-                        animate="open"
-                        exit="closed"
-                        variants={menuVariants}
-                        className="absolute top-full left-1/2 -translate-x-1/2 pt-2"
-                      >
-                        <div className="bg-white shadow-2xl rounded-2xl border border-slate-100 overflow-hidden flex min-w-[500px]">
-                          {dropdownData[label].map((group, idx) => (
-                            <div key={idx} className={`flex-1 min-w-[200px] ${idx !== 0 ? 'border-l border-slate-50' : ''}`}>
-                              <div className="bg-slate-50/50 px-6 py-4 border-b border-slate-50">
-                                <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">
-                                  {group.title}
-                                </span>
-                              </div>
-                              <ul className="p-4 space-y-1">
-                                {group.items.map((item) => (
-                                  <li key={item}>
-                                    <Link href={href} className="group/item flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-amber-50 transition-all">
-                                      <span className="text-sm text-slate-600 group-hover/item:text-amber-700 font-medium">{item}</span>
-                                      <MdChevronRight className="text-amber-500 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </li>
               );
             })}
           </ul>
 
-          {/* CTA & Mobile Toggle */}
-          <div className="flex items-center gap-4">
-            <Link href="/contact" className="hidden sm:inline-flex items-center px-6 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-full hover:bg-amber-600 transition-all shadow-md active:scale-95">
-              Get Started
-            </Link>
-
-            <button
-              className="lg:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle Menu"
+          {/* ── CTA + Mobile Toggle ── */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <Link
+              href="/contact"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[12.5px] font-bold tracking-wide text-white bg-[#0d1f3c] hover:bg-[#c9a94e] transition-all duration-250 shadow-md hover:shadow-[0_6px_20px_rgba(201,169,78,0.35)] active:scale-95"
             >
-              {isMobileMenuOpen ? <MdClose size={28} /> : <MdMenu size={28} />}
+              <HiOutlineDocumentCheck size={15} />
+              Get Consultation
+            </Link>
+            <button
+              className="lg:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-xl transition-colors"
+              onClick={() => setIsMobileOpen(true)}
+              aria-label="Open menu"
+            >
+              <MdMenu size={26} />
             </button>
           </div>
         </div>
+      </nav>
 
-        {/* Mobile Menu Overlay */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
+      {/* ── Mobile Drawer ────────────────────────────────────────────────────── */}
+      <AnimatePresence>
+        {isMobileOpen && (
+          <>
+            {/* Backdrop */}
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white border-t border-slate-100 overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              className="fixed inset-0 bg-[#0d1f3c]/60 backdrop-blur-sm z-50 lg:hidden"
+              onClick={() => setIsMobileOpen(false)}
+            />
+
+            {/* Drawer */}
+            <motion.div
+              variants={drawerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="fixed top-0 left-0 bottom-0 w-[300px] bg-white z-50 shadow-2xl flex flex-col lg:hidden overflow-hidden"
             >
-              <div className="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
-                {navLinks.map(({ label, href }) => (
-                  <div key={label} className="space-y-2">
+              {/* ── Drawer Header ── */}
+              {/*
+               * The logo here is rendered white-on-navy.
+               * If your logo already has a light/white version, swap the src.
+               * Otherwise, `brightness-0 invert` CSS filter turns any dark logo white —
+               * remove those two classes if your logo is already suitable for a dark bg.
+               */}
+              <div className="flex items-center justify-between px-5 py-3.5 bg-[#0d1f3c] border-b border-white/5">
+                <Link
+                  href="/"
+                  onClick={() => setIsMobileOpen(false)}
+                  aria-label="Home"
+                >
+                  <div className="relative w-[120px] h-[34px]">
+                    <Image
+                      src="/images/remove.png"
+                      alt="Eminence Global Compliance Group"
+                      fill
+                      sizes="120px"
+                      className="object-contain object-left brightness-0 invert"
+                      /* Remove `brightness-0 invert` if you have a white/light logo variant */
+                    />
+                  </div>
+                </Link>
+                <button
+                  onClick={() => setIsMobileOpen(false)}
+                  className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  aria-label="Close menu"
+                >
+                  <MdClose size={22} className="text-white" />
+                </button>
+              </div>
+
+              {/* CTA */}
+              <div className="px-5 pt-5 pb-3">
+                <Link
+                  href="/contact"
+                  onClick={() => setIsMobileOpen(false)}
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#0d1f3c] text-white text-sm font-bold tracking-wide shadow-md active:scale-95 transition-transform"
+                >
+                  <HiOutlineDocumentCheck size={16} />
+                  Get Free Consultation
+                </Link>
+              </div>
+
+              {/* Divider */}
+              <div className="mx-5 h-px bg-slate-100" />
+
+              {/* Nav Links */}
+              <nav className="flex-1 overflow-y-auto px-3 py-3">
+                {navLinks.map(({ label, href, hasDropdown }) => {
+                  const isActive = pathname === href;
+
+                  if (hasDropdown) {
+                    return (
+                      <div key={label}>
+                        <button
+                          className={`flex items-center justify-between w-full px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                            mobileServicesOpen
+                              ? "bg-slate-50 text-[#0d1f3c]"
+                              : "text-slate-700 hover:bg-slate-50"
+                          }`}
+                          onClick={() =>
+                            setMobileServicesOpen(!mobileServicesOpen)
+                          }
+                        >
+                          <span>{label}</span>
+                          <MdExpandMore
+                            className={`text-lg text-slate-400 transition-transform duration-300 ${
+                              mobileServicesOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+
+                        <AnimatePresence>
+                          {mobileServicesOpen && (
+                            <motion.div
+                              variants={accordionVariants}
+                              initial="hidden"
+                              animate="visible"
+                              exit="exit"
+                              className="overflow-hidden"
+                            >
+                              <div className="px-2 pb-2 space-y-3 pt-1">
+                                {serviceGroups.map((group) => (
+                                  <div key={group.category}>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400 px-3 mb-1.5">
+                                      {group.category}
+                                    </p>
+                                    {group.items.map((item) => {
+                                      const Icon = item.icon;
+                                      return (
+                                        <Link
+                                          key={item.label}
+                                          href={item.href}
+                                          onClick={() => setIsMobileOpen(false)}
+                                          className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 active:bg-slate-100 transition-all"
+                                        >
+                                          <span className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0">
+                                            <Icon className="text-slate-500 text-sm" />
+                                          </span>
+                                          <span className="text-[12.5px] text-slate-600 font-medium flex-1 leading-snug">
+                                            {item.label}
+                                          </span>
+                                          {item.tag && (
+                                            <span
+                                              className={`text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full ${
+                                                item.tag === "New"
+                                                  ? "bg-emerald-50 text-emerald-600"
+                                                  : "bg-amber-50 text-amber-600"
+                                              }`}
+                                            >
+                                              {item.tag}
+                                            </span>
+                                          )}
+                                        </Link>
+                                      );
+                                    })}
+                                  </div>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+
+                  return (
                     <Link
+                      key={label}
                       href={href}
-                      className="block text-lg font-bold text-slate-800"
+                      onClick={() => setIsMobileOpen(false)}
+                      className={`flex items-center w-full px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
+                        isActive
+                          ? "bg-slate-100 text-[#0d1f3c]"
+                          : "text-slate-700 hover:bg-slate-50 active:bg-slate-100"
+                      }`}
                     >
                       {label}
                     </Link>
-                    {dropdownData[label] && (
-                      <div className="pl-4 border-l-2 border-amber-100 space-y-3 pt-2 pb-4">
-                        {dropdownData[label].flatMap(g => g.items).map(item => (
-                          <Link key={item} href={href} className="block text-sm text-slate-500 hover:text-amber-600">
-                            {item}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-                <Link href="/contact" className="block w-full py-4 bg-amber-500 text-white text-center font-bold rounded-xl">
-                  Contact Us
-                </Link>
+                  );
+                })}
+              </nav>
+
+              {/* ── Drawer Footer — real contact details ── */}
+              <div className="border-t border-slate-100 px-5 py-4 bg-slate-50/50">
+                <div className="flex flex-col gap-2.5 text-[11px] text-slate-500">
+                  <a
+                    href="tel:+917428555852"
+                    className="flex items-center gap-2 hover:text-[#0d1f3c] transition-colors"
+                  >
+                    <IoIosCall className="text-[#c9a94e] text-[13px] flex-shrink-0" />
+                    +91 74285 55852
+                  </a>
+                  <a
+                    href="mailto:info@eminencecompliance.com"
+                    className="flex items-center gap-2 hover:text-[#0d1f3c] transition-colors"
+                  >
+                    <MdEmail className="text-[#c9a94e] text-[13px] flex-shrink-0" />
+                    info@eminencecompliance.com
+                  </a>
+                  <span className="flex items-start gap-2 text-slate-400 leading-relaxed">
+                    {/* inline map-pin svg — no extra dep needed */}
+                    <svg
+                      className="flex-shrink-0 mt-[1px]"
+                      width="13"
+                      height="13"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#c9a94e"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Ganga Vihar, New Delhi – 110094
+                  </span>
+                </div>
               </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
