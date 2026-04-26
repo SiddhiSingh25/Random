@@ -382,7 +382,6 @@
 
 "use client";
 
-import Header from "@/components/common/header";
 import Heading from "@/components/common/Heading";
 import { motion } from "framer-motion";
 import { 
