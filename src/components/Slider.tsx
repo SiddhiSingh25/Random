@@ -171,7 +171,7 @@ const Slider = () => {
 
               {/* Heading */}
               <h1
-                className="h2 font-light text-white leading-tight mb-1  "
+                className="h2 font-semibold text-white leading-tight mb-1  "
                 style={{
                   // fontFamily: "'Poppins', sans-serif",
                   fontFamily: "'Cormorant Garamond', serif",

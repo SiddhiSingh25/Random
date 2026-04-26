@@ -101,7 +101,7 @@ const AboutUsSection = () => {
                     Trusted Compliance Partner
                   </span>
                 </div>
-                <p className="text-[12px] leading-relaxed family-regular opacity-90">
+                <p className="text-[12px] leading-relaxed family-semibold opacity-90">
                   Complete support for BIS, FMCS, BEE, CRS, WPC, Trade Compliance and Ministry approvals.
                 </p>
               </motion.div>
@@ -127,10 +127,10 @@ const AboutUsSection = () => {
               </motion.h2>
 
               <motion.div variants={itemVariants} className="space-y-4 max-w-xl">
-                <p className="text-base sm:text-lg text-primary-700 family-regular leading-snug">
+                <p className="text-base sm:text-lg text-primary-700 family-semibold leading-snug">
                   Eminence Global Compliance Group is a professional consulting firm delivering end-to-end Regulatory Compliance, Product Certification, Testing, Trade Compliance, Customs Clearance Support, and Indian Standards Assessment.
                 </p>
-                <p className="text-primary-400 text-sm leading-relaxed family-regular">
+                <p className="text-primary-400 text-sm leading-relaxed family-semibold">
                   From BIS ISI Certification, Foreign Manufacturer Certification, BEE, BIS CRS, WPC ETA, and Ministry NOCs to global trade approvals — we simplify complex regulatory procedures through transparent, result-oriented execution.
                 </p>
               </motion.div>

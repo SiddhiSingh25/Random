@@ -116,7 +116,7 @@ export default function RootLayout({
 
       <LenisScroll />
 
-      <body className={`${outfit.variable} family-regular antialiased`}>
+      <body className={`${outfit.variable} family-semibold antialiased`}>
         <Navbar />
         {children}
 
