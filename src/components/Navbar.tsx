@@ -114,7 +114,7 @@ const navLinks = [
   { label: "Services", href: "/services", hasDropdown: true },
   // { label: "Certification Process", href: "/process" },
   { label: "Achievements", href: "/achievements" },
-  { label: "Blog", href: "/blog" },
+  // { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -201,7 +201,7 @@ export default function SheenNavbar() {
     <header className="relative w-full font-sans">
 
       {/* ── Top Banner ──────────────────────────────────────────────────────── */}
-      <div className="hidden sm:flex w-full bg-[#0d1f3c] text-slate-300 py-2.5 px-6 lg:px-16 justify-between items-center text-[10.5px] uppercase tracking-widest border-b border-white/5">
+      <div className="hidden sm:flex w-full bg-[#0d1f3c] text-slate-300 py-2.5 px-4 md:px-16 lg:px-28 justify-between items-center text-[10.5px] uppercase tracking-widest border-b border-white/5">
         <div className="flex gap-7 items-center">
           <a
             href="mailto:info@eminencecompliance.com"
@@ -241,13 +241,12 @@ export default function SheenNavbar() {
 
       {/* ── Main Nav ────────────────────────────────────────────────────────── */}
       <nav
-        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-          scrolled
-            ? "bg-white/95 backdrop-blur-md shadow-[0_4px_24px_rgba(13,31,60,0.09)]"
-            : "bg-white border-b border-slate-100"
-        }`}
+        className={`sticky top-0 z-50 w-full   transition-all duration-300 ${scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-[0_4px_24px_rgba(13,31,60,0.09)]"
+          : "bg-white border-b border-slate-100"
+          }`}
       >
-        <div className="max-w-7xl mx-auto px-5 lg:px-10 h-[70px] flex items-center justify-between gap-6">
+        <div className=" mx-auto px-4 md:px-16 lg:px-28  w-full  h-[70px] flex items-center justify-between gap-6">
 
           {/* ── Logo ── */}
           {/*
@@ -257,15 +256,15 @@ export default function SheenNavbar() {
            *   lg+     → 170 × 50 px
            * The `object-contain object-left` keeps the image sharp and left-anchored
            * at every size without any cropping.
-           * Replace the src below with your actual logo path, e.g. "/images/logo.png"
+           * Replace the src below with your actual logo path, e.g. "/images/logoNew.png"
            */}
           <Link
             href="/"
             className="flex items-center flex-shrink-0 group"
             aria-label="Eminence Global Compliance Group — Home"
           >
-           <div
-  className="
+            <div
+              className="
     relative
     w-[150px] h-[48px]
     sm:w-[190px] sm:h-[56px]
@@ -273,16 +272,16 @@ export default function SheenNavbar() {
     lg:w-[320px] lg:h-[78px]
     xl:w-[350px] xl:h-[82px]
   "
->
-  <Image
-    src="/images/logo.png"
-    alt="Eminence Global Compliance Group"
-    fill
-    priority
-    sizes="(max-width: 640px) 150px, (max-width: 768px) 190px, (max-width: 1024px) 220px, 320px"
-    className="object-contain object-left"
-  />
-</div>
+            >
+              <Image
+                src="/images/logoNew.png"
+                alt="Eminence Global Compliance Group"
+                fill
+                priority
+                sizes="(max-width: 640px) 150px, (max-width: 768px) 170px, (max-width: 1024px) 200px, 350px"
+                className="object-contain object-left"
+              />
+            </div>
           </Link>
 
           {/* ── Desktop Nav Links ── */}
@@ -303,17 +302,15 @@ export default function SheenNavbar() {
                   >
                     <Link
                       href={href}
-                      className={`flex items-center gap-1 px-3.5 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-200 ${
-                        isActive
-                          ? "text-[#0d1f3c] bg-slate-100"
-                          : "text-slate-600 hover:text-[#0d1f3c] hover:bg-slate-50"
-                      }`}
+                      className={`flex items-center gap-1 px-3.5 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive
+                        ? "text-[#0d1f3c] bg-slate-100"
+                        : "text-slate-600 hover:text-[#0d1f3c] hover:bg-slate-50"
+                        }`}
                     >
                       {label}
                       <MdExpandMore
-                        className={`text-base transition-transform duration-300 ${
-                          servicesOpen ? "rotate-180 text-[#c9a94e]" : ""
-                        }`}
+                        className={`text-base transition-transform duration-300 ${servicesOpen ? "rotate-180 text-[#c9a94e]" : ""
+                          }`}
                       />
                     </Link>
 
@@ -375,11 +372,10 @@ export default function SheenNavbar() {
                                             </span>
                                             {item.tag && (
                                               <span
-                                                className={`text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full ${
-                                                  item.tag === "New"
-                                                    ? "bg-emerald-50 text-emerald-600"
-                                                    : "bg-amber-50 text-amber-600"
-                                                }`}
+                                                className={`text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full ${item.tag === "New"
+                                                  ? "bg-emerald-50 text-emerald-600"
+                                                  : "bg-amber-50 text-amber-600"
+                                                  }`}
                                               >
                                                 {item.tag}
                                               </span>
@@ -417,11 +413,10 @@ export default function SheenNavbar() {
                 <li key={label}>
                   <Link
                     href={href}
-                    className={`flex items-center px-3.5 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-200 ${
-                      isActive
-                        ? "text-[#0d1f3c] bg-slate-100"
-                        : "text-slate-600 hover:text-[#0d1f3c] hover:bg-slate-50"
-                    }`}
+                    className={`flex items-center px-3.5 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-200 ${isActive
+                      ? "text-[#0d1f3c] bg-slate-100"
+                      : "text-slate-600 hover:text-[#0d1f3c] hover:bg-slate-50"
+                      }`}
                   >
                     {label}
                   </Link>
@@ -485,14 +480,23 @@ export default function SheenNavbar() {
                   onClick={() => setIsMobileOpen(false)}
                   aria-label="Home"
                 >
-                  <div className="relative w-[120px] h-[34px]">
+                  <div
+                    className="
+    relative
+    w-[150px] h-[48px]
+    sm:w-[190px] sm:h-[56px]
+    md:w-[220px] md:h-[62px]
+    lg:w-[320px] lg:h-[78px]
+    xl:w-[350px] xl:h-[82px]
+  "
+                  >
                     <Image
-                      src="/images/logo.png"
+                      src="/images/logoNew.png"
                       alt="Eminence Global Compliance Group"
                       fill
-                      sizes="120px"
-                      className="object-contain object-left brightness-0 invert"
-                      /* Remove `brightness-0 invert` if you have a white/light logo variant */
+                      priority
+                      sizes="(max-width: 640px) 170px, (max-width: 768px) 200px, (max-width: 1024px) 240px, 350px"
+                      className="object-contain object-left"
                     />
                   </div>
                 </Link>
@@ -529,20 +533,18 @@ export default function SheenNavbar() {
                     return (
                       <div key={label}>
                         <button
-                          className={`flex items-center justify-between w-full px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                            mobileServicesOpen
-                              ? "bg-slate-50 text-[#0d1f3c]"
-                              : "text-slate-700 hover:bg-slate-50"
-                          }`}
+                          className={`flex items-center justify-between w-full px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 ${mobileServicesOpen
+                            ? "bg-slate-50 text-[#0d1f3c]"
+                            : "text-slate-700 hover:bg-slate-50"
+                            }`}
                           onClick={() =>
                             setMobileServicesOpen(!mobileServicesOpen)
                           }
                         >
                           <span>{label}</span>
                           <MdExpandMore
-                            className={`text-lg text-slate-400 transition-transform duration-300 ${
-                              mobileServicesOpen ? "rotate-180" : ""
-                            }`}
+                            className={`text-lg text-slate-400 transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""
+                              }`}
                           />
                         </button>
 
@@ -578,11 +580,10 @@ export default function SheenNavbar() {
                                           </span>
                                           {item.tag && (
                                             <span
-                                              className={`text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full ${
-                                                item.tag === "New"
-                                                  ? "bg-emerald-50 text-emerald-600"
-                                                  : "bg-amber-50 text-amber-600"
-                                              }`}
+                                              className={`text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full ${item.tag === "New"
+                                                ? "bg-emerald-50 text-emerald-600"
+                                                : "bg-amber-50 text-amber-600"
+                                                }`}
                                             >
                                               {item.tag}
                                             </span>
@@ -605,11 +606,10 @@ export default function SheenNavbar() {
                       key={label}
                       href={href}
                       onClick={() => setIsMobileOpen(false)}
-                      className={`flex items-center w-full px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
-                        isActive
-                          ? "bg-slate-100 text-[#0d1f3c]"
-                          : "text-slate-700 hover:bg-slate-50 active:bg-slate-100"
-                      }`}
+                      className={`flex items-center w-full px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 ${isActive
+                        ? "bg-slate-100 text-[#0d1f3c]"
+                        : "text-slate-700 hover:bg-slate-50 active:bg-slate-100"
+                        }`}
                     >
                       {label}
                     </Link>

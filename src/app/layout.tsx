@@ -94,7 +94,7 @@ export default function RootLayout({
         />
       </head>
        <LenisScroll/>
-      <body className={`${outfit.variable} family-regular antialiased`}>
+      <body className={`${outfit.variable} family-medium antialiased`}>
         <Navbar />
         {children}
         <QuickMessage />

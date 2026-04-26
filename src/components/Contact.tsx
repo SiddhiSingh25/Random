@@ -120,12 +120,12 @@ const Field = ({ label, error, children }: InputProps) => (
       {label}
     </label>
     {children}
-    {error && <p className="text-xs family-regular" style={{ color: "#c0392b" }}>{error}</p>}
+    {error && <p className="text-xs family-medium" style={{ color: "#c0392b" }}>{error}</p>}
   </div>
 );
 
 const inputCls =
-  "w-full px-4 py-3 text-sm rounded-xl transition-all duration-200 family-regular outline-none";
+  "w-full px-4 py-3 text-sm rounded-xl transition-all duration-200 family-medium outline-none";
 const inputStyle = {
   background: "#f7f9fc",
   border: "1px solid rgba(32,56,92,0.14)",
@@ -209,7 +209,7 @@ export default function Contact() {
           </svg>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative w-full mx-auto px-4 md:px-16 lg:px-28">
 
           {/* ══════════════════════════════
               SECTION HEADING
@@ -248,13 +248,13 @@ export default function Contact() {
                   <FaShieldAlt size={9} />
                   Eminence Global Compliance Group
                 </div>
-                <p className="family-light text-sm leading-relaxed" style={{ color: "rgba(210,205,195,0.8)" }}>
+                <p className="family-medium text-sm leading-relaxed" style={{ color: "rgba(210,205,195,0.8)" }}>
                   Specialising in BIS certification, CRS registration, ISI Mark licensing,
                   FMCS for foreign manufacturers, and end-to-end regulatory compliance across India and global markets.
                 </p>
                 <div className="flex items-center gap-2 mt-4">
                   <div className="w-5 h-px" style={{ background: "#bc8737" }} />
-                  <span className="text-xs family-regular" style={{ color: "rgba(188,135,55,0.8)" }}>
+                  <span className="text-xs family-medium" style={{ color: "rgba(188,135,55,0.8)" }}>
                     New Delhi, India · Since 2020
                   </span>
                 </div>
@@ -296,7 +296,7 @@ export default function Contact() {
                     <p className="text-sm family-medium truncate" style={{ color: "#20385c" }}>
                       {card.primary}
                     </p>
-                    <p className="text-xs family-light mt-0.5 leading-relaxed" style={{ color: "rgba(32,56,92,0.5)" }}>
+                    <p className="text-xs family-medium mt-0.5 leading-relaxed" style={{ color: "rgb(32,56,92)" }}>
                       {card.sub}
                     </p>
                   </div>
@@ -334,7 +334,7 @@ export default function Contact() {
                     <h3 className="family-semibold text-base" style={{ color: "#20385c" }}>
                       Request a Consultation
                     </h3>
-                    <p className="family-light text-xs mt-0.5" style={{ color: "rgba(32,56,92,0.5)" }}>
+                    <p className="family-medium text-xs mt-0.5" style={{ color: "rgb(32,56,92)" }}>
                       Our team responds within 24 business hours
                     </p>
                   </div>
@@ -350,7 +350,7 @@ export default function Contact() {
                 {/* Success / Error banners */}
                 {status === "success" && (
                   <div
-                    className="mx-6 mt-5 px-4 py-3 rounded-xl flex items-center gap-3 text-sm family-regular"
+                    className="mx-6 mt-5 px-4 py-3 rounded-xl flex items-center gap-3 text-sm family-medium"
                     style={{ background: "rgba(46,204,113,0.08)", border: "1px solid rgba(46,204,113,0.25)", color: "#1e8449" }}
                   >
                     <FaCheckCircle size={14} />
@@ -359,7 +359,7 @@ export default function Contact() {
                 )}
                 {status === "error" && (
                   <div
-                    className="mx-6 mt-5 px-4 py-3 rounded-xl flex items-center gap-3 text-sm family-regular"
+                    className="mx-6 mt-5 px-4 py-3 rounded-xl flex items-center gap-3 text-sm family-medium"
                     style={{ background: "rgba(192,57,43,0.07)", border: "1px solid rgba(192,57,43,0.2)", color: "#c0392b" }}
                   >
                     Something went wrong. Please try again or email us directly.
@@ -440,7 +440,7 @@ export default function Contact() {
 
                   {/* Footer row */}
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-1">
-                    <p className="text-xs family-light leading-relaxed max-w-xs" style={{ color: "rgba(32,56,92,0.45)" }}>
+                    <p className="text-xs family-medium leading-relaxed max-w-xs" style={{ color: "rgba(32,56,92,0.45)" }}>
                       By submitting, you agree to our{" "}
                       <span className="family-medium" style={{ color: "#20385c" }}>Privacy Policy</span>{" "}
                       &amp;{" "}
@@ -453,7 +453,7 @@ export default function Contact() {
                       className="submit-btn inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-xl family-semibold text-sm tracking-wide transition-all duration-250 whitespace-nowrap"
                       style={{
                         background: isSubmitting
-                          ? "rgba(32,56,92,0.5)"
+                          ? "rgb(32,56,92)"
                           : "linear-gradient(135deg, #20385c, #2d4f80)",
                         color: "#ffffff",
                         boxShadow: "0 4px 16px rgba(32,56,92,0.25)",

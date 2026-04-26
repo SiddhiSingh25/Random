@@ -43,24 +43,25 @@ const AboutUsSection = () => {
   } as const;
 
   return (
-    <section className="relative py-12 bg-gray-50 overflow-hidden">
-
-
+<>
       <Heading
-        label="Compliance Services"
-        title="Expert BIS & Regulatory Solutions"
-        description="Navigate Indian regulatory requirements with ease."
-      />
+            label="Compliance Services"
+            title="Expert BIS & Regulatory Solutions"
+            description="Navigate Indian regulatory requirements with ease."
+          />
+    <section className="relative py-10 overflow-hidden">
 
 
-      <div className="absolute inset-0 -z-10 bg-linear-to-br from-primary-50 via-white to-secondary-50" />
+   
+
+      <div className="absolute inset-0 -z-10 bg-linear-to-br " />
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="mx-auto mt-16 grid max-w-8xl grid-cols-1 lg:grid-cols-12 gap-10 px-4 md:px-16 lg:px-24 items-center"
+        className="mx-auto grid max-w-8xl grid-cols-1 lg:grid-cols-12 gap-10 px-4 md:px-16 lg:px-28 items-center"
       >
         {/* ---------------- LEFT : IMAGE ---------------- */}
         <motion.div 
@@ -102,7 +103,7 @@ const AboutUsSection = () => {
                 <HiOutlineShieldCheck className="text-xl text-secondary-300" />
                 <span className="text-xs family-bold uppercase tracking-widest text-secondary-200">Liaison Expert</span>
               </div>
-              <p className="text-[12px] leading-relaxed family-light opacity-90">
+              <p className="text-[12px] leading-relaxed family-medium opacity-90">
                 Accelerated pathways for BIS, CDSCO & WPC through tier-1 regulatory channels.
               </p>
             </motion.div>
@@ -131,7 +132,7 @@ const AboutUsSection = () => {
               <p className="text-base sm:text-lg text-primary-700 family-medium leading-snug">
                 Beyond paperwork: We deliver the technical roadmap for mandatory certifications and statutory compliance.
               </p>
-              <p className="text-primary-400 text-sm leading-relaxed family-regular">
+              <p className="text-primary-400 text-sm leading-relaxed family-medium">
                 Specializing in BIS, ISI, WPC, and CDSCO registrations, we bridge the gap between global standards and Indian regulatory mandates.
               </p>
             </motion.div>
@@ -180,6 +181,7 @@ const AboutUsSection = () => {
         </div>
       </motion.div>
     </section>
+    </>
   );
 };
 

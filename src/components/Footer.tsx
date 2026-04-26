@@ -175,7 +175,7 @@ export function Footer() {
 
     
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+      <div className="w-full mx-auto px-4 px-4 md:px-16 lg:px-28 py-14 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
 
           {/* COL 1 — Brand Overview */}
@@ -224,7 +224,7 @@ export function Footer() {
             />
 
             <p
-              className="family-regular text-sm leading-relaxed"
+              className="family-medium text-sm leading-relaxed"
               style={{ color: "rgba(200,195,185,0.75)" }}
             >
               A premier regulatory consultancy specialising in BIS certifications,
@@ -275,7 +275,7 @@ export function Footer() {
                 <li key={i}>
                   <Link
                     href="/services"
-                    className="family-regular text-sm flex items-center gap-2 transition-all duration-200"
+                    className="family-medium text-sm flex items-center gap-2 transition-all duration-200"
                     style={{ color: "rgba(200,195,185,0.7)" }}
                     onMouseEnter={hoverGold}
                     onMouseLeave={unhoverMuted}
@@ -302,7 +302,7 @@ export function Footer() {
                 <li key={i}>
                   <Link
                     href={l.href}
-                    className="family-regular text-sm flex items-center gap-2 transition-all duration-200"
+                    className="family-medium text-sm flex items-center gap-2 transition-all duration-200"
                     style={{ color: "rgba(200,195,185,0.7)" }}
                     onMouseEnter={hoverGold}
                     onMouseLeave={unhoverMuted}
@@ -326,7 +326,7 @@ export function Footer() {
             <div style={{ width: "24px", height: "1px", background: "#bc8737" }} />
 
             <p
-              className="family-light text-xs leading-relaxed"
+              className="family-medium text-xs leading-relaxed"
               style={{ color: "rgba(200,195,185,0.6)" }}
             >
               For inquiries related to regulatory certifications, trade compliance, BIS
@@ -349,7 +349,7 @@ export function Footer() {
                     <span className="mt-0.5 shrink-0" style={{ color: "#bc8737" }}>
                       {c.icon}
                     </span>
-                    <span className="family-regular">{c.value}</span>
+                    <span className="family-medium">{c.value}</span>
                   </a>
                 </li>
               ))}
@@ -360,7 +360,7 @@ export function Footer() {
                   style={{ color: "#bc8737" }}
                 />
                 <span
-                  className="family-regular leading-relaxed"
+                  className="family-medium leading-relaxed"
                   style={{ color: "rgba(200,195,185,0.75)" }}
                 >
                   G/F Kh No-230, F-348 OLD-34-A/1, Gali No-7,
@@ -379,7 +379,7 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p
-              className="family-light text-xs text-center sm:text-left"
+              className="family-medium text-xs text-center sm:text-left"
               style={{ color: "rgba(160,155,145,0.7)" }}
             >
               © {new Date().getFullYear()} Eminence Global Compliance Group. All Rights Reserved.
@@ -390,7 +390,7 @@ export function Footer() {
                 <Link
                   key={i}
                   href="#"
-                  className="family-regular text-xs transition-colors duration-200"
+                  className="family-medium text-xs transition-colors duration-200"
                   style={{ color: "rgba(160,155,145,0.65)" }}
                   onMouseEnter={hoverGoldAccent}
                   onMouseLeave={unhoverLegal}
@@ -403,7 +403,7 @@ export function Footer() {
             <div className="flex items-center gap-1.5">
               <FaIndustry size={11} style={{ color: "rgba(188,135,55,0.5)" }} />
               <span
-                className="family-light text-xs"
+                className="family-medium text-xs"
                 style={{ color: "rgba(160,155,145,0.5)" }}
               >
                 BIS Certified Consultancy Practice

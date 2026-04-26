@@ -450,7 +450,7 @@ function TeamCard({
                 className="absolute -inset-[3px] rounded-full"
                 style={{
                   background:
-                    "conic-gradient(from 0deg, rgba(188,135,55,0.9), transparent 35%, rgba(32,56,92,0.5) 55%, transparent 75%, rgba(188,135,55,0.9))",
+                    "conic-gradient(from 0deg, rgba(188,135,55,0.9), transparent 35%, rgb(32,56,92) 55%, transparent 75%, rgba(188,135,55,0.9))",
                 }}
                 animate={{ rotate: isHovered ? 360 : 0 }}
                 transition={{

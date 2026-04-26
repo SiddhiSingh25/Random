@@ -253,7 +253,7 @@ const ServiceCard = ({ id, icon: Icon, title, description }: any ) => {
               style={{
                 color: isHovered
                   ? "rgba(255,255,255,0.72)"
-                  : "rgba(32,56,92,0.5)",
+                  : "rgb(32,56,92)",
               }}
             >
               {description}
@@ -274,7 +274,7 @@ const ServiceCard = ({ id, icon: Icon, title, description }: any ) => {
              href={`/services/${id}`}
               className="group/cta inline-flex items-center gap-2.5 text-[0.76rem] font-bold uppercase tracking-[0.12em] transition-colors duration-400"
               style={{
-                color: isHovered ? "#bc8737" : "rgba(32,56,92,0.45)",
+                color: isHovered ? "#bc8737" : "rgba(32,56,92)",
               }}
               tabIndex={0}
             >

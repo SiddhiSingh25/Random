@@ -154,7 +154,7 @@ const SlideCard = ({ slide }: { slide: AchievementSlide }) => (
         </h3>
       </div>
 
-      <p className="text-gray-600 family-regular text-sm leading-relaxed mb-6">
+      <p className="text-gray-600 family-medium text-sm leading-relaxed mb-6">
         Successfully facilitated the <span className="family-semibold text-primary-800">BIS Certification</span> for {slide.clientName} in {slide.country}. 
         Complete factory audit, documentation, and sample testing were managed under {slide.standard}, ensuring 100% regulatory compliance for the Indian market.
       </p>
@@ -250,7 +250,7 @@ const GlobalAudit = () => {
       `}</style>
 
       <div className="py-8 md:py-10 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="max-w-8xl mx-auto  px-4 md:px-16 lg:px-28 ">
 
           {/* ── Section Header ── */}
          <div className="flex items-center justify-between mb-8">

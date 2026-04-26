@@ -6,11 +6,6 @@ const page = () => {
   return (
     <>
 
-      <Heading
-        label="Our Story"
-        title="Driving Innovation Since 2004"
-        description="Learn about our journey, our values, and the people behind our success."
-      />
       <WhoWeAre />
       <WhyChooseUs />
     </>

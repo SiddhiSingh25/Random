@@ -267,7 +267,7 @@ const ServiceCard = ({ id, icon: Icon, title, description }: ServiceCardProps) =
               style={{
                 color: isHovered
                   ? "rgba(255,255,255,0.72)"
-                  : "rgba(32,56,92,0.5)",
+                  : "rgb(32,56,92)",
               }}
             >
               {description}

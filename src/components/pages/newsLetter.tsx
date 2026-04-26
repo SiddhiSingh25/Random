@@ -4,7 +4,7 @@ export default function NewsLetter() {
       {/* Decorative background element for premium feel */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-secondary-500/5 rounded-full blur-3xl -mr-32 -mt-32" />
       
-      <div className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center relative z-10">
+      <div className="w-full px-4 md:px-16 lg:px-28 mx-auto text-center flex flex-col items-center justify-center relative z-10">
         
         {/* Label with a small accent line */}
         <div className="flex items-center gap-2 mb-4">
@@ -19,7 +19,7 @@ export default function NewsLetter() {
           Subscribe to our Newsletter for <span className="text-secondary-500">Regulatory Updates</span>
         </h2>
 
-        <p className="mt-4 text-primary-200 text-sm md:text-base max-w-lg family-regular opacity-80">
+        <p className="mt-4 text-primary-200 text-sm md:text-base max-w-lg family-medium opacity-80">
           Get the latest BIS notifications, FMCS news, and compliance insights delivered to your inbox.
         </p>
 
@@ -32,7 +32,7 @@ export default function NewsLetter() {
             <input
               type="email"
               required
-              className="w-full bg-primary-900 sm:bg-transparent border border-primary-800 sm:border-none outline-none rounded-full sm:rounded-none px-6 py-4 sm:py-2 text-sm text-white placeholder-primary-400 family-regular flex-1"
+              className="w-full bg-primary-900 sm:bg-transparent border border-primary-800 sm:border-none outline-none rounded-full sm:rounded-none px-6 py-4 sm:py-2 text-sm text-white placeholder-primary-400 family-medium flex-1"
               placeholder="Enter corporate email address"
             />
             <button 

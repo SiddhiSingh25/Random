@@ -171,8 +171,8 @@ const Heading = ({ label, title, description }: HeadingProps) => {
       {/* ── Description ── */}
       <motion.p
         variants={itemVariants}
-        className="mx-auto max-w-2xl text-sm leading-relaxed sm:text-base family-regular"
-        style={{ color: "rgba(32,56,92,0.5)" }}
+        className="mx-auto max-w-2xl text-sm leading-relaxed sm:text-base family-medium"
+        style={{ color: "rgb(32,56,92)" }}
       >
         {description}
       </motion.p>

@@ -298,7 +298,7 @@
 //                   </h3>
                   
 //                   {/* Description */}
-//                   <p className="text-gray-600 text-sm leading-relaxed family-regular line-clamp-3">
+//                   <p className="text-gray-600 text-sm leading-relaxed family-medium line-clamp-3">
 //                     {news.description}
 //                   </p>
 //                 </div>

@@ -1,5 +1,7 @@
+import SimpleHeading from "../common/SimpleHeading";
+
 const OurClients = () => {
-  const companyLogos = ["slack", "framer", "netflix", "google", "linkedin", "instagram", "facebook"];
+  const companyLogos = ["slack", "framer", "netflix", "google", "linkedin", "instagram", "facebook" ,"slack", "framer", "netflix", "google", "linkedin", "instagram", "facebook"];
 
   return (
     <>
@@ -18,17 +20,17 @@ const OurClients = () => {
         }
       `}</style>
 
-      <div className="w-full bg-primary-50 py-12 md:py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          {/* Section Heading */}
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-semibold text-primary-900 family-mainheading">
-              Trusted by Leading Companies
-            </h2>
-            <p className="text-primary-600 mt-2 family-regular">
-              We partner with the best to deliver exceptional results.
-            </p>
-          </div>
+      <div className="w-full bg-primary-50 py-10 md:py-16">
+        <div className="w-full mx-auto px-4 md:px-16 lg:px-28">
+          {/* Section Heading */}   
+
+
+           <SimpleHeading
+            badgeText="Client Stories"
+            title="Trusted by Leading Companies"
+            align="center"
+          /> 
+          
 
           {/* Marquee Section */}
           <div className="overflow-hidden relative">

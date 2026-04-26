@@ -84,7 +84,7 @@ const Testimonials = () => {
       {/* Accent bar */}
       <div className="tl-card-accent" aria-hidden="true" />
 
-      <div className="tl-card-inner">
+      <div className="tl-card-inner   ">
         {/* Top row: quote icon + stars */}
         <div className="flex items-start justify-between mb-5">
           <div className="tl-quote-icon">
@@ -131,7 +131,6 @@ const Testimonials = () => {
         /* ── Section base ── */
         .tl-section {
           background: #F7F8FC;
-          padding: 100px 0 110px;
           overflow: hidden;
           position: relative;
         }
@@ -403,33 +402,17 @@ const Testimonials = () => {
         }
       `}</style>
 
-      <section className="tl-section" aria-labelledby="tl-heading">
-        {/* ── Header ── */}
-        <div className="tl-header">
-          <SimpleHeading
+
+
+      <section className="tl-section   py-12" aria-labelledby="tl-heading">
+        
+ <SimpleHeading
             badgeText="Client Stories"
             title="Trusted by Compliance Leaders Worldwide"
             align="center"
-          />
-
-          {/* Trust stats strip */}
-          <div className="tl-stats" role="list" aria-label="Trust metrics">
-            {[
-              { number: "500+", label: "Certifications" },
-              { number: "98%", label: "Success Rate" },
-              { number: "40+", label: "Countries" },
-              { number: "12+", label: "Years Expertise" },
-            ].map((stat, i) => (
-              <div key={i} className="tl-stat" role="listitem">
-                <span className="tl-stat-number">{stat.number}</span>
-                <span className="tl-stat-label">{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
+          /> 
         {/* ── Scrolling tracks ── */}
-        <div className="tl-tracks" aria-label="Client testimonials">
+        <div className="tl-tracks  px-4 md:px-16 lg:px-28" aria-label="Client testimonials">
           {rows.map((row, rowIndex) => (
             <div key={rowIndex} className="tl-track">
               <div className="tl-fade-l" aria-hidden="true" />
