@@ -422,86 +422,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// NAVBAR
-// ─────────────────────────────────────────────────────────────
-function Navbar() {
-  const [open, setOpen] = useState(false);
-  const navLinks = ["About", "Services", "Industries", "Resources", "Contact"];
-
-  return (
-    <>
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
-        <div className="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
-          {/* Logo */}
-          <a href="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#0d1f3c] flex items-center justify-center">
-              <span className="font-serif text-[#c9a94e] font-bold text-base leading-none">E</span>
-            </div>
-            <div>
-              <p className="text-[13px] font-semibold text-[#0d1f3c] leading-tight">Eminence</p>
-              <p className="text-[9px] tracking-[0.12em] uppercase text-gray-400 leading-tight">
-                Global Compliance Group
-              </p>
-            </div>
-          </a>
-
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((l) => (
-              <a key={l} href="#" className="text-[13px] font-medium text-gray-500 hover:text-[#0d1f3c] transition-colors">
-                {l}
-              </a>
-            ))}
-          </nav>
-
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <span className="text-[12px] text-gray-400">+91 74285 55852</span>
-            <a
-              href="#cta"
-              className="bg-[#0d1f3c] text-white text-[12.5px] font-semibold px-5 py-2.5 rounded-full hover:bg-[#162d52] transition-colors"
-            >
-              Free Consultation
-            </a>
-          </div>
-
-          {/* Mobile hamburger */}
-          <button onClick={() => setOpen(true)} className="md:hidden p-1.5 text-gray-600">
-            <FaBars size={22} />
-          </button>
-        </div>
-      </header>
-
-      {/* Mobile menu overlay */}
-      {open && (
-        <div className="fixed inset-0 z-[200] bg-white flex flex-col p-6">
-          <button onClick={() => setOpen(false)} className="self-end mb-6 text-gray-500">
-            <BiCross size={24} />
-          </button>
-          {navLinks.map((l) => (
-            <a
-              key={l}
-              href="#"
-              onClick={() => setOpen(false)}
-              className="py-3.5 border-b border-gray-100 text-[16px] font-medium text-[#0d1f3c]"
-            >
-              {l}
-            </a>
-          ))}
-          <a
-            href="#cta"
-            onClick={() => setOpen(false)}
-            className="mt-6 bg-[#c9a94e] text-[#0d1f3c] font-bold text-center py-4 rounded-full text-[15px]"
-          >
-            Free Consultation
-          </a>
-        </div>
-      )}
-    </>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────
 // HERO
 // ─────────────────────────────────────────────────────────────
 function Hero({ service }: { service: ServiceDetail }) {
@@ -1120,7 +1040,6 @@ export default function ServiceDetailPage() {
 
   return (
     <div className="min-h-screen bg-white antialiased">
-      <Navbar />
       <main>
         <Hero service={service} />
         <TrustBar />
@@ -1131,7 +1050,6 @@ export default function ServiceDetailPage() {
         <FAQ service={service} />
         <CTA service={service} />
       </main>
-      <Footer />
 
       {/* Floating WhatsApp */}
       <a
