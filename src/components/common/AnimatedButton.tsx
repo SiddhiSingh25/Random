@@ -35,7 +35,7 @@ const AnimatedButton = ({
         />
 
         {/* Content */}
-        <span className="relative z-10 flex items-center justify-center w-full text-white font-medium whitespace-nowrap">
+        <span className="relative z-10 flex items-center justify-center w-full text-white font-semibold whitespace-nowrap">
           <span className="text-center">{title}</span>
         </span>
       </button>

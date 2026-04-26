@@ -282,7 +282,7 @@
 //                   </div>
                   
 //                   {/* Category and Date */}
-//                   <div className="flex items-center gap-3 text-xs text-gray-500 mb-3 family-medium">
+//                   <div className="flex items-center gap-3 text-xs text-gray-500 mb-3 family-regular">
 //                     <span className={`${categoryColors[news.color]} font-bold tracking-wide`}>
 //                       {news.category}
 //                     </span>
@@ -298,7 +298,7 @@
 //                   </h3>
                   
 //                   {/* Description */}
-//                   <p className="text-gray-600 text-sm leading-relaxed family-medium line-clamp-3">
+//                   <p className="text-gray-600 text-sm leading-relaxed family-regular line-clamp-3">
 //                     {news.description}
 //                   </p>
 //                 </div>
@@ -365,12 +365,12 @@
 //               transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
 //               className="w-2.5 h-2.5 bg-green-500 rounded-full shadow-md"
 //             />
-//             <span className="text-sm text-gray-700 font-semibold family-medium">{newsData.length} Active Updates</span>
+//             <span className="text-sm text-gray-700 font-semibold family-regular">{newsData.length} Active Updates</span>
 //           </div>
 //           <div className="w-px h-7 bg-gray-300" />
 //           <div className="flex items-center gap-2.5">
 //             <FaChartLine className="w-4 h-4 text-[#bc8737]" />
-//             <span className="text-sm text-gray-700 font-semibold family-medium">Last updated today</span>
+//             <span className="text-sm text-gray-700 font-semibold family-regular">Last updated today</span>
 //           </div>
 //         </div>
 //       </motion.div>
@@ -496,7 +496,7 @@ export default function NewsUpdatesPage() {
                 <div className="flex items-center gap-3 mb-4 text-xs font-semibold tracking-tight uppercase">
                   <span className={isPrimary ? 'text-[#20385c]' : 'text-[#bc8737]'}>{news.category}</span>
                   <span className="w-1 h-1 bg-gray-300 rounded-full" />
-                  <span className="text-gray-400 font-medium normal-case">{news.date}</span>
+                  <span className="text-gray-400 font-semibold normal-case">{news.date}</span>
                 </div>
 
                 {/* Text Content */}
@@ -554,7 +554,7 @@ export default function NewsUpdatesPage() {
             <span className="text-sm font-bold text-gray-700">{newsData.length} Active</span>
           </div>
           <div className="h-4 w-px bg-gray-200" />
-          <div className="flex items-center gap-2 text-gray-400 text-xs font-medium">
+          <div className="flex items-center gap-2 text-gray-400 text-xs font-semibold">
             <FaChartLine />
             <span>Updated 2m ago</span>
           </div>

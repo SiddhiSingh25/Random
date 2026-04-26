@@ -27,7 +27,7 @@
 // // // const TabButton = ({ label, active, onClick }: { label: string, active: boolean, onClick: () => void }) => (
 // // //   <motion.button
 // // //     onClick={onClick}
-// // //     className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+// // //     className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
 // // //       active
 // // //         ? "bg-primary-800 text-white shadow-lg shadow-primary-800/20"
 // // //         : "bg-gray-100 text-gray-600 hover:bg-primary-50"
@@ -155,7 +155,7 @@
 // //             <motion.button
 // //               key={tab}
 // //               onClick={() => setActiveTab(tab)}
-// //               className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+// //               className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
 // //                 activeTab === tab ? "bg-[#20385c] text-white" : "bg-gray-100 text-gray-600"
 // //               }`}
 // //               whileHover={{ y: -2 }}

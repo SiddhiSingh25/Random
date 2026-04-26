@@ -26,7 +26,7 @@ const SecondaryButton = ({ href, title }: { href: string; title: string }) => {
           relative z-10 inline-flex items-center gap-3
           px-6 py-3
           sm:px-10
-          font-medium
+          font-semibold
           text-secondary-600
           whitespace-nowrap
           transition-colors duration-300

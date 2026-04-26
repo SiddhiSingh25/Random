@@ -77,7 +77,7 @@
 //                   <div className="w-8 h-8 rounded-full bg-secondary-500 text-primary-900 flex items-center justify-center font-bold text-sm z-10 shrink-0">
 //                     {idx + 1}
 //                   </div>
-//                   <p className="text-sm text-gray-600 font-medium pt-1">{step}</p>
+//                   <p className="text-sm text-gray-600 font-semibold pt-1">{step}</p>
 //                 </div>
 //               ))}
 //             </div>
@@ -475,7 +475,7 @@ function Hero({ service }: { service: ServiceDetail }) {
               </a>
               <a
                 href="#process"
-                className="inline-flex items-center gap-2 text-white/70 hover:text-white border border-white/20 hover:border-white/40 text-[13px] font-medium px-6 py-3.5 rounded-full transition-all"
+                className="inline-flex items-center gap-2 text-white/70 hover:text-white border border-white/20 hover:border-white/40 text-[13px] font-semibold px-6 py-3.5 rounded-full transition-all"
               >
                 View Process
               </a>
@@ -509,7 +509,7 @@ function Hero({ service }: { service: ServiceDetail }) {
                     {row.value}
                   </span>
                 ) : (
-                  <span className="text-white text-[12.5px] font-medium text-right">{row.value}</span>
+                  <span className="text-white text-[12.5px] font-semibold text-right">{row.value}</span>
                 )}
               </div>
             ))}
@@ -534,7 +534,7 @@ function TrustBar() {
     <div className="bg-[#f8f9fb] border-b border-gray-100 py-4">
       <div className="max-w-6xl mx-auto px-5 flex items-center justify-center flex-wrap gap-x-8 gap-y-3">
         {items.map((item, i) => (
-          <div key={i} className="flex items-center gap-2 text-[12.5px] font-medium text-gray-500">
+          <div key={i} className="flex items-center gap-2 text-[12.5px] font-semibold text-gray-500">
             <span>{item.icon}</span>
             {item.text}
             {i < items.length - 1 && <span className="hidden sm:block ml-8 w-px h-4 bg-gray-200" />}
@@ -585,7 +585,7 @@ function Overview({ service }: { service: ServiceDetail }) {
               {service.overview.industries.map((ind) => (
                 <span
                   key={ind}
-                  className="text-[12px] font-medium text-gray-500 bg-[#f8f9fb] border border-gray-200 px-3.5 py-1.5 rounded-full hover:border-[#e8d49a] hover:text-[#0d1f3c] hover:bg-[#faf5e8] transition-all cursor-default"
+                  className="text-[12px] font-semibold text-gray-500 bg-[#f8f9fb] border border-gray-200 px-3.5 py-1.5 rounded-full hover:border-[#e8d49a] hover:text-[#0d1f3c] hover:bg-[#faf5e8] transition-all cursor-default"
                 >
                   {ind}
                 </span>
@@ -769,7 +769,7 @@ function Documents({ service }: { service: ServiceDetail }) {
                 {group.items.map((doc) => (
                   <div
                     key={doc}
-                    className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-4 py-3 text-[13px] font-medium text-[#0d1f3c] hover:border-[#e8d49a] hover:bg-[#faf5e8] transition-all group"
+                    className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-4 py-3 text-[13px] font-semibold text-[#0d1f3c] hover:border-[#e8d49a] hover:bg-[#faf5e8] transition-all group"
                   >
                     <FiFileText size={14} className="text-gray-300 group-hover:text-[#c9a94e] transition-colors flex-shrink-0" />
                     <span className="flex-1">{doc}</span>
@@ -839,7 +839,7 @@ function FAQ({ service }: { service: ServiceDetail }) {
                     onClick={() => setOpen(isOpen ? null : i)}
                     className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left bg-white hover:bg-[#f8f9fb] transition-colors"
                   >
-                    <span className={`font-medium text-[14.5px] leading-snug ${isOpen ? "text-[#c9a94e]" : "text-[#0d1f3c]"}`}>
+                    <span className={`font-semibold text-[14.5px] leading-snug ${isOpen ? "text-[#c9a94e]" : "text-[#0d1f3c]"}`}>
                       {faq.question}
                     </span>
                     <div

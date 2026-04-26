@@ -223,7 +223,7 @@ export default function SheenNavbar() {
           </span>
         </div>
         <div className="flex items-center gap-5">
-          <span className="hidden xl:inline text-[#c9a94e]/80 border-r border-white/10 pr-5 mr-1 font-medium tracking-wider">
+          <span className="hidden xl:inline text-[#c9a94e]/80 border-r border-white/10 pr-5 mr-1 font-semibold tracking-wider">
             India's Trusted Regulatory &amp; BIS Experts
           </span>
           {socialLinks.map(({ icon: Icon, href }, i) => (
@@ -258,31 +258,31 @@ export default function SheenNavbar() {
            * at every size without any cropping.
            * Replace the src below with your actual logo path, e.g. "/images/logoNew.png"
            */}
-          <Link
-            href="/"
-            className="flex items-center flex-shrink-0 group"
-            aria-label="Eminence Global Compliance Group — Home"
-          >
-            <div
-              className="
-    relative
-    w-[150px] h-[48px]
-    sm:w-[190px] sm:h-[56px]
-    md:w-[220px] md:h-[62px]
-    lg:w-[320px] lg:h-[78px]
-    xl:w-[350px] xl:h-[82px]
-  "
-            >
-              <Image
-                src="/images/logoNew.png"
-                alt="Eminence Global Compliance Group"
-                fill
-                priority
-                sizes="(max-width: 640px) 150px, (max-width: 768px) 170px, (max-width: 1024px) 200px, 350px"
-                className="object-contain object-left"
-              />
-            </div>
-          </Link>
+         <Link
+  href="/"
+  className="flex items-center flex-shrink-0 group"
+  aria-label="Eminence Global Compliance Group — Home"
+>
+  <div
+    className="
+      relative
+      w-[118px] h-[38px]
+      sm:w-[140px] sm:h-[44px]
+      md:w-[165px] md:h-[50px]
+      lg:w-[210px] lg:h-[52px]
+      xl:w-[250px] xl:h-[70px]
+    "
+  >
+    <Image
+      src="/images/logoNew.png"
+      alt="Eminence Global Compliance Group"
+      fill
+      priority
+      sizes="(max-width: 640px) 118px, (max-width: 768px) 140px, (max-width: 1024px) 165px, 225px"
+      className="object-contain object-left"
+    />
+  </div>
+</Link>
 
           {/* ── Desktop Nav Links ── */}
           <ul className="hidden lg:flex items-center gap-0.5">
@@ -367,7 +367,7 @@ export default function SheenNavbar() {
                                             <span className="w-7 h-7 rounded-lg bg-slate-100 group-hover/item:bg-[#0d1f3c] flex items-center justify-center transition-colors duration-200 flex-shrink-0">
                                               <Icon className="text-slate-500 group-hover/item:text-[#c9a94e] text-sm transition-colors duration-200" />
                                             </span>
-                                            <span className="flex-1 text-[12.5px] text-slate-600 group-hover/item:text-[#0d1f3c] font-medium leading-snug">
+                                            <span className="flex-1 text-[12.5px] text-slate-600 group-hover/item:text-[#0d1f3c] font-semibold leading-snug">
                                               {item.label}
                                             </span>
                                             {item.tag && (
@@ -575,7 +575,7 @@ export default function SheenNavbar() {
                                           <span className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0">
                                             <Icon className="text-slate-500 text-sm" />
                                           </span>
-                                          <span className="text-[12.5px] text-slate-600 font-medium flex-1 leading-snug">
+                                          <span className="text-[12.5px] text-slate-600 font-semibold flex-1 leading-snug">
                                             {item.label}
                                           </span>
                                           {item.tag && (

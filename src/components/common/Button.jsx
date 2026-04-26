@@ -18,7 +18,7 @@ const Button = ({ href, title }) => {
           relative z-20 inline-flex items-center gap-3
           px-6 py-3
           sm:px-10
-          text-white font-medium
+          text-white font-semibold
           whitespace-nowrap
         "
       >

@@ -96,13 +96,13 @@ function hoverGold(e: MouseEvent<HTMLElement>): void {
   (e.currentTarget as HTMLElement).style.color = "#f0c060";
 }
 function unhoverMuted(e: MouseEvent<HTMLElement>): void {
-  (e.currentTarget as HTMLElement).style.color = "rgba(200,195,185,0.7)";
+  (e.currentTarget as HTMLElement).style.color = "rgb(233 229 222 / 90%)";
 }
 function hoverGoldAccent(e: MouseEvent<HTMLElement>): void {
   (e.currentTarget as HTMLElement).style.color = "#bc8737";
 }
 function unhoverLegal(e: MouseEvent<HTMLElement>): void {
-  (e.currentTarget as HTMLElement).style.color = "rgba(160,155,145,0.65)";
+  (e.currentTarget as HTMLElement).style.color = "rgb(233 229 222 / 90%)";
 }
 
 /* ─────────────────────────────────────────────
@@ -176,43 +176,37 @@ export function Footer() {
     
       
       <div className="w-full mx-auto px-4 px-4 md:px-16 lg:px-28 py-14 lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-10 gap-y-10 gap-x-8 lg:gap-x-10 xl:gap-x-14">
 
           {/* COL 1 — Brand Overview */}
-          <div className="sm:col-span-2 lg:col-span-3 space-y-5">
+          <div className="sm:col-span-2 lg:col-span-3 xl:pr-6 space-y-4">
             <div className="flex items-center gap-3">
-               <div
-                            className="
-                              relative
-                              w-[130px] h-[38px]
-                              sm:w-[150px] sm:h-[44px]
-                              lg:w-[300px] lg:h-[50px]
-                              transition-transform duration-300 group-hover:scale-[1.03]
-                            "
-                          >
-                            <Image
-                              src="/images/logo.png"
-                              alt="Eminence Global Compliance Group"
-                              fill
-                              priority
-                              sizes="(max-width: 640px) 130px, (max-width: 1024px) 150px, 170px"
-                              className="object-contain object-left"
-                            />
-                          </div>
-              <div>
-                <div
-                  className="family-mainheading text-xs tracking-[0.15em]"
-                  style={{ color: "#bc8737" }}
-                >
-                  EMINENCE
-                </div>
-                <div
-                  className="family-mainheading text-[10px] tracking-[0.12em]"
-                  style={{ color: "rgba(220,215,205,0.6)" }}
-                >
-                  GLOBAL COMPLIANCE GROUP
-                </div>
-              </div>
+                       <Link
+  href="/"
+  className="flex items-center flex-shrink-0 group"
+  aria-label="Eminence Global Compliance Group — Home"
+>
+  <div
+    className="
+      relative
+      w-[118px] h-[38px]
+      sm:w-[140px] sm:h-[44px]
+      md:w-[165px] md:h-[50px]
+      lg:w-[210px] lg:h-[52px]
+      xl:w-[250px] xl:h-[70px]
+    "
+  >
+    <Image
+      src="/images/logoNew.png"
+      alt="Eminence Global Compliance Group"
+      fill
+      priority
+      sizes="(max-width: 640px) 118px, (max-width: 768px) 140px, (max-width: 1024px) 165px, 225px"
+      className="object-contain object-left"
+    />
+  </div>
+</Link>
+             
             </div>
 
             <div
@@ -224,8 +218,8 @@ export function Footer() {
             />
 
             <p
-              className="family-medium text-sm leading-relaxed"
-              style={{ color: "rgba(200,195,185,0.75)" }}
+              className="family-semibold text-sm leading-relaxed"
+              style={{ color: "rgb(233 229 222 / 90%)" }}
             >
               A premier regulatory consultancy specialising in BIS certifications,
               government approvals, and international compliance for manufacturers
@@ -275,8 +269,8 @@ export function Footer() {
                 <li key={i}>
                   <Link
                     href="/services"
-                    className="family-medium text-sm flex items-center gap-2 transition-all duration-200"
-                    style={{ color: "rgba(200,195,185,0.7)" }}
+                    className="family-semibold text-sm flex items-center gap-2 transition-all duration-200"
+                    style={{ color: "rgb(233 229 222 / 90%)" }}
                     onMouseEnter={hoverGold}
                     onMouseLeave={unhoverMuted}
                   >
@@ -302,8 +296,8 @@ export function Footer() {
                 <li key={i}>
                   <Link
                     href={l.href}
-                    className="family-medium text-sm flex items-center gap-2 transition-all duration-200"
-                    style={{ color: "rgba(200,195,185,0.7)" }}
+                    className="family-semibold text-sm flex items-center gap-2 transition-all duration-200"
+                    style={{ color: "rgb(233 229 222 / 90%)" }}
                     onMouseEnter={hoverGold}
                     onMouseLeave={unhoverMuted}
                   >
@@ -326,8 +320,8 @@ export function Footer() {
             <div style={{ width: "24px", height: "1px", background: "#bc8737" }} />
 
             <p
-              className="family-medium text-xs leading-relaxed"
-              style={{ color: "rgba(200,195,185,0.6)" }}
+              className="family-semibold text-xs leading-relaxed"
+              style={{ color: "rgb(233 229 222 / 90%)" }}
             >
               For inquiries related to regulatory certifications, trade compliance, BIS
               approvals, and global government licensing assistance, please contact our
@@ -339,17 +333,17 @@ export function Footer() {
                 <li key={i}>
                   <a
                     href={c.href}
-                    className="flex items-start gap-2.5 text-xs break-all transition-all duration-200"
-                    style={{ color: "rgba(200,195,185,0.75)" }}
+                    className="flex items-start gap-2.5 text-xs break-all transition-all duration-200 font-normal"
+                    style={{ color: "rgb(233 229 222 / 90%)" }}
                     onMouseEnter={hoverGold}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "rgba(200,195,185,0.75)";
+                      e.currentTarget.style.color = "rgb(233 229 222 / 90%)";
                     }}
                   >
                     <span className="mt-0.5 shrink-0" style={{ color: "#bc8737" }}>
                       {c.icon}
                     </span>
-                    <span className="family-medium">{c.value}</span>
+                    <span className="family-semibold">{c.value}</span>
                   </a>
                 </li>
               ))}
@@ -360,8 +354,8 @@ export function Footer() {
                   style={{ color: "#bc8737" }}
                 />
                 <span
-                  className="family-medium leading-relaxed"
-                  style={{ color: "rgba(200,195,185,0.75)" }}
+                  className="family-semibold leading-relaxed"
+                  style={{ color: "rgb(233 229 222 / 90%)" }}
                 >
                   G/F Kh No-230, F-348 OLD-34-A/1, Gali No-7,
                   <br />
@@ -379,8 +373,8 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p
-              className="family-medium text-xs text-center sm:text-left"
-              style={{ color: "rgba(160,155,145,0.7)" }}
+              className="family-semibold text-xs text-center sm:text-left"
+              style={{ color: "rgb(233 229 222 / 90%)" }}
             >
               © {new Date().getFullYear()} Eminence Global Compliance Group. All Rights Reserved.
             </p>
@@ -390,8 +384,8 @@ export function Footer() {
                 <Link
                   key={i}
                   href="#"
-                  className="family-medium text-xs transition-colors duration-200"
-                  style={{ color: "rgba(160,155,145,0.65)" }}
+                  className="family-semibold text-xs transition-colors duration-200"
+                  style={{ color: "rgb(233 229 222 / 90%)" }}
                   onMouseEnter={hoverGoldAccent}
                   onMouseLeave={unhoverLegal}
                 >
@@ -401,10 +395,10 @@ export function Footer() {
             </div>
 
             <div className="flex items-center gap-1.5">
-              <FaIndustry size={11} style={{ color: "rgba(188,135,55,0.5)" }} />
+              <FaIndustry size={11} style={{ color: "rgb(233 229 222 / 90%)" }} />
               <span
-                className="family-medium text-xs"
-                style={{ color: "rgba(160,155,145,0.5)" }}
+                className="family-semibold text-xs"
+                style={{ color: "rgb(233 229 222 / 90%)" }}
               >
                 BIS Certified Consultancy Practice
               </span>

@@ -126,7 +126,7 @@ const AccordionItem = ({ q, idx }: { q: FAQ; idx: number }) => {
           >
             {idx + 1}
           </span>
-          <span className="text-sm family-medium" style={{ color: "#20385c" }}>
+          <span className="text-sm family-regular" style={{ color: "#20385c" }}>
             {q.question}
           </span>
         </div>
@@ -152,7 +152,7 @@ const AccordionItem = ({ q, idx }: { q: FAQ; idx: number }) => {
             background: "rgba(188,135,55,0.04)",
           }}
         >
-          <p className="text-sm leading-relaxed family-medium" style={{ color: "#4a5568" }}>
+          <p className="text-sm leading-relaxed family-regular" style={{ color: "#4a5568" }}>
             {q.answer}
           </p>
         </div>
@@ -286,7 +286,7 @@ const FAQPage = () => {
                               <tab.icon size={11} style={{ color: isActive ? "#ffffff" : "#20385c", opacity: isActive ? 1 : 0.5 }} />
                             </div>
                             <span
-                              className="text-[12.5px] family-medium"
+                              className="text-[12.5px] family-regular"
                               style={{ color: isActive ? "#20385c" : "#6b7280" }}
                             >
                               {tab.label}
@@ -322,7 +322,7 @@ const FAQPage = () => {
                   <h2 className="family-semibold text-base" style={{ color: "#20385c" }}>
                     {currentTab.label}
                   </h2>
-                  <p className="family-medium text-xs" style={{ color: "#6b7280" }}>
+                  <p className="family-regular text-xs" style={{ color: "#6b7280" }}>
                     {faqData[activeTab].length} questions answered
                   </p>
                 </div>
@@ -357,7 +357,7 @@ const FAQPage = () => {
                 <p className="family-semibold text-sm mb-1" style={{ color: "#f5f0e8" }}>
                   Still have questions?
                 </p>
-                <p className="family-medium text-xs mb-4" style={{ color: "rgba(210,205,195,0.65)" }}>
+                <p className="family-regular text-xs mb-4" style={{ color: "rgba(210,205,195,0.65)" }}>
                   Speak directly with a compliance consultant.
                 </p>
                 <Link href="/contact">

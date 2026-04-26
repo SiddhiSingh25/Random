@@ -21,7 +21,7 @@ const Page = async ({ params }: PageProps) => {
       </h1>
 
       <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mt-4">
-        <span className="font-medium text-gray-700">{blog.publishedBy}</span>
+        <span className="font-semibold text-gray-700">{blog.publishedBy}</span>
         <span className="w-1 h-1 bg-gray-400 rounded-full" />
         <span>{blog.date}</span>
         <span className="w-1 h-1 bg-gray-400 rounded-full" />
