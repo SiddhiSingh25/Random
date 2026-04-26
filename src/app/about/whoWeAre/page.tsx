@@ -96,7 +96,7 @@ const AboutUsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="hidden  absolute -left-6 -bottom-4 z-20 bg-primary-900/95 backdrop-blur-sm p-5 rounded-lg shadow-xl text-white max-w-[220px]"
+              className="absolute -left-6 -bottom-4 z-20 bg-primary-900/95 backdrop-blur-sm p-5 rounded-lg shadow-xl text-white max-w-[220px]"
             >
               <div className="flex items-center gap-2 mb-2">
                 <HiOutlineShieldCheck className="text-xl text-secondary-300" />

@@ -112,9 +112,11 @@ export function Footer() {
   return (
     <footer
       style={{
-        background: "linear-gradient(175deg, #1a2f4e 0%, #20385c 40%, #162844 100%)",
+        background: "linear-gradient(175deg, #0f1b37 0%, #0f1b37 40%, #0f1b37 100%)",
       }}
       className="relative overflow-hidden"
+
+    
     >
       {/* ── World-map SVG watermark ── */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none select-none">
