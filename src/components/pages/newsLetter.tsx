@@ -19,7 +19,7 @@ export default function NewsLetter() {
           Subscribe to our Newsletter for <span className="text-secondary-500">Regulatory Updates</span>
         </h2>
 
-        <p className="mt-4 text-primary-200 text-sm md:text-base max-w-lg family-semibold opacity-80">
+        <p className="mt-4 text-primary-200 text-sm md:text-base max-w-lg family-regular opacity-80">
           Get the latest BIS notifications, FMCS news, and compliance insights delivered to your inbox.
         </p>
 
@@ -32,7 +32,7 @@ export default function NewsLetter() {
             <input
               type="email"
               required
-              className="w-full bg-primary-900 sm:bg-transparent border border-primary-800 sm:border-none outline-none rounded-full sm:rounded-none px-6 py-4 sm:py-2 text-sm text-white placeholder-primary-400 family-semibold flex-1"
+              className="w-full bg-primary-900 sm:bg-transparent border border-primary-800 sm:border-none outline-none rounded-full sm:rounded-none px-6 py-4 sm:py-2 text-sm text-white placeholder-primary-400 family-regular flex-1"
               placeholder="Enter corporate email address"
             />
             <button 
@@ -49,13 +49,13 @@ export default function NewsLetter() {
               <svg className="w-4 h-4 text-secondary-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              <span className="text-[11px] md:text-xs text-primary-200 uppercase tracking-wider family-semibold">BIS Insights</span>
+              <span className="text-[11px] md:text-xs text-primary-200 uppercase tracking-wider family-regular">BIS Insights</span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="w-4 h-4 text-secondary-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              <span className="text-[11px] md:text-xs text-primary-200 uppercase tracking-wider family-semibold">Zero Spam</span>
+              <span className="text-[11px] md:text-xs text-primary-200 uppercase tracking-wider family-regular">Zero Spam</span>
             </div>
           </div>
         </div>

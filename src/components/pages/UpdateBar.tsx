@@ -77,7 +77,7 @@ const UpdateBar = () => {
                     <IoCalendarOutline size={13} className="text-secondary-300" />
                 </div>
 
-                <span className="text-[0.8rem] family-semibold tracking-tight text-primary-100 group-hover/item:text-secondary-200 transition-colors duration-300">
+                <span className="text-[0.8rem] family-regular tracking-tight text-primary-100 group-hover/item:text-secondary-200 transition-colors duration-300">
                   {event}
                 </span>
 

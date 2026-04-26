@@ -151,7 +151,7 @@ const Slider = () => {
 
         {/* ── Content ── */}
         <div className="relative z-10 h-full flex items-center">
-          <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
+          <div className="w-full mx-auto  sm:px-10  px-4 md:px-16 lg:px-28">
             <div className="max-w-3xl">
 
               {/* Eyebrow badge */}

@@ -334,7 +334,7 @@ const Testimonials = () => {
           font-family: "Regular", sans-serif;
           font-size: 0.875rem;
           line-height: 1.75;
-          color: #4a5568;
+          color: #191a1c;
           flex: 1;
           margin: 0 0 18px 0;
           letter-spacing: 0.005em;

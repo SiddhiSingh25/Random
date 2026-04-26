@@ -104,7 +104,7 @@ const SlideCard = ({ slide }: { slide: AchievementSlide }) => (
       </div>
       <div className="flex items-center gap-1.5">
         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-        <span className="text-[10px] text-primary-200 family-semibold uppercase">Audit Verified</span>
+        <span className="text-[10px] text-primary-200 family-regular uppercase">Audit Verified</span>
       </div>
     </div>
 
@@ -118,7 +118,7 @@ const SlideCard = ({ slide }: { slide: AchievementSlide }) => (
       <div className="absolute top-4 left-4">
         <div className="bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded flex items-center gap-2">
           <FaBuilding className="text-white/70 text-xs" />
-          <span className="text-white/80 text-[10px] family-semibold tracking-wider uppercase">
+          <span className="text-white/80 text-[10px] family-regular tracking-wider uppercase">
             {slide.clientName}
           </span>
         </div>
@@ -138,7 +138,7 @@ const SlideCard = ({ slide }: { slide: AchievementSlide }) => (
           {slide.headline}
         </h3>
       </div>
-      <p className="text-gray-600 family-semibold text-sm leading-relaxed mb-6">
+      <p className="text-gray-600 family-regular text-sm leading-relaxed mb-6">
         Successfully facilitated the <span className="family-semibold text-primary-800">BIS Certification</span> for {slide.clientName} in {slide.country}.
         Complete factory audit, documentation, and sample testing were managed under {slide.standard}, ensuring 100% regulatory compliance for the Indian market.
       </p>
@@ -159,7 +159,7 @@ const SlideCard = ({ slide }: { slide: AchievementSlide }) => (
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-1.5">
           <FaGlobe className="text-primary-400 text-[10px]" />
-          <span className="text-[10px] text-primary-700 family-semibold">info@eminencecompliance.com</span>
+          <span className="text-[10px] text-primary-700 family-regular">info@eminencecompliance.com</span>
         </div>
       </div>
       <div className="items-center gap-1.5 hidden md:flex">
@@ -223,7 +223,7 @@ const GlobalAudit = () => {
                     Compliance Services
                   </span>
                 </h2>
-                <p className="text-[12px] md:text-sm text-gray-500 family-semibold tracking-wide mt-1">
+                <p className="text-[12px] md:text-sm text-gray-500 family-regular tracking-wide mt-1">
                   BIS Certifications · Global Market Approvals · Regulatory Documentation
                 </p>
               </div>

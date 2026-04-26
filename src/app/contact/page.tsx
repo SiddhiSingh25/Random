@@ -120,12 +120,12 @@ const Field = ({ label, error, children }: InputProps) => (
       {label}
     </label>
     {children}
-    {error && <p className="text-xs family-semibold" style={{ color: "#c0392b" }}>{error}</p>}
+    {error && <p className="text-xs family-regular" style={{ color: "#c0392b" }}>{error}</p>}
   </div>
 );
 
 const inputCls =
-  "w-full px-4 py-3 text-sm rounded-xl transition-all duration-200 family-semibold outline-none";
+  "w-full px-4 py-3 text-sm rounded-xl transition-all duration-200 family-regular outline-none";
 const inputStyle = {
   background: "#f7f9fc",
   border: "1px solid rgba(32,56,92,0.14)",
@@ -248,13 +248,13 @@ export default function Contact() {
                   <FaShieldAlt size={9} />
                   Eminence Global Compliance Group
                 </div>
-                <p className="family-semibold text-sm leading-relaxed" style={{ color: "rgba(210,205,195,0.8)" }}>
+                <p className="family-regular text-sm leading-relaxed" style={{ color: "rgba(210,205,195,0.8)" }}>
                   Specialising in BIS certification, CRS registration, ISI Mark licensing,
                   FMCS for foreign manufacturers, and end-to-end regulatory compliance across India and global markets.
                 </p>
                 <div className="flex items-center gap-2 mt-4">
                   <div className="w-5 h-px" style={{ background: "#bc8737" }} />
-                  <span className="text-xs family-semibold" style={{ color: "rgba(188,135,55,0.8)" }}>
+                  <span className="text-xs family-regular" style={{ color: "rgba(188,135,55,0.8)" }}>
                     New Delhi, India · Since 2020
                   </span>
                 </div>
@@ -293,10 +293,10 @@ export default function Contact() {
                     <p className="text-[10px] family-semibold tracking-widest uppercase mb-0.5" style={{ color: "#bc8737" }}>
                       {card.label}
                     </p>
-                    <p className="text-sm family-semibold truncate" style={{ color: "#20385c" }}>
+                    <p className="text-sm family-regular truncate" style={{ color: "#20385c" }}>
                       {card.primary}
                     </p>
-                    <p className="text-xs family-semibold mt-0.5 leading-relaxed" style={{ color: "rgb(32,56,92)" }}>
+                    <p className="text-xs family-regular mt-0.5 leading-relaxed" style={{ color: "rgb(32,56,92)" }}>
                       {card.sub}
                     </p>
                   </div>
@@ -334,7 +334,7 @@ export default function Contact() {
                     <h3 className="family-semibold text-base" style={{ color: "#20385c" }}>
                       Request a Consultation
                     </h3>
-                    <p className="family-semibold text-xs mt-0.5" style={{ color: "rgb(32,56,92)" }}>
+                    <p className="family-regular text-xs mt-0.5" style={{ color: "rgb(32,56,92)" }}>
                       Our team responds within 24 business hours
                     </p>
                   </div>
@@ -350,7 +350,7 @@ export default function Contact() {
                 {/* Success / Error banners */}
                 {status === "success" && (
                   <div
-                    className="mx-6 mt-5 px-4 py-3 rounded-xl flex items-center gap-3 text-sm family-semibold"
+                    className="mx-6 mt-5 px-4 py-3 rounded-xl flex items-center gap-3 text-sm family-regular"
                     style={{ background: "rgba(46,204,113,0.08)", border: "1px solid rgba(46,204,113,0.25)", color: "#1e8449" }}
                   >
                     <FaCheckCircle size={14} />
@@ -359,7 +359,7 @@ export default function Contact() {
                 )}
                 {status === "error" && (
                   <div
-                    className="mx-6 mt-5 px-4 py-3 rounded-xl flex items-center gap-3 text-sm family-semibold"
+                    className="mx-6 mt-5 px-4 py-3 rounded-xl flex items-center gap-3 text-sm family-regular"
                     style={{ background: "rgba(192,57,43,0.07)", border: "1px solid rgba(192,57,43,0.2)", color: "#c0392b" }}
                   >
                     Something went wrong. Please try again or email us directly.
@@ -440,11 +440,11 @@ export default function Contact() {
 
                   {/* Footer row */}
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-1">
-                    <p className="text-xs family-semibold leading-relaxed max-w-xs" style={{ color: "rgba(32,56,92,0.45)" }}>
+                    <p className="text-xs family-regular leading-relaxed max-w-xs" style={{ color: "rgba(32,56,92,0.45)" }}>
                       By submitting, you agree to our{" "}
-                      <span className="family-semibold" style={{ color: "#20385c" }}>Privacy Policy</span>{" "}
+                      <span className="family-regular" style={{ color: "#20385c" }}>Privacy Policy</span>{" "}
                       &amp;{" "}
-                      <span className="family-semibold" style={{ color: "#20385c" }}>Terms of Service</span>.
+                      <span className="family-regular" style={{ color: "#20385c" }}>Terms of Service</span>.
                     </p>
 
                     <button
@@ -506,7 +506,7 @@ export default function Contact() {
                     />
                   )}
                   <span style={{ color: "#bc8737" }}>{item.icon}</span>
-                  <span className="family-semibold text-xs" style={{ color: "#20385c", opacity: 0.75 }}>
+                  <span className="family-regular text-xs" style={{ color: "#20385c", opacity: 0.75 }}>
                     {item.text}
                   </span>
                 </div>
