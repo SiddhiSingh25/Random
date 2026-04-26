@@ -41,28 +41,7 @@ const getIconForService = (title) => {
   return IconBIS;
 };
 
-export const containerVariants = {
-  hidden: { 
-    opacity: 0 
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      // delayChildren: The time to wait before the first child starts
-      delayChildren: 0.1, 
-      // staggerChildren: The gap between each child's entrance (e.g., 0.1s)
-      staggerChildren: 0.15, 
-    },
-  },
-  exit: {
-    opacity: 0,
-    scale: 0.95,
-    transition: { 
-      duration: 0.2,
-      ease: "easeIn" 
-    }
-  }
-};
+
 
 export const itemVariants = {
   hidden: { 
