@@ -443,26 +443,34 @@ const certTags = ["BIS", "WPC", "BEE", "EPR", "TEC", "LMPC", "FSSAI"];
 const HeroSection = () => {
   const [current, setCurrent]         = useState(0);
   const [progressKey, setProgressKey] = useState(0);
-  const intervalRef = useRef(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const startInterval = () => {
+const startInterval = () => {
+  if (intervalRef.current !== null) {
     clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      setCurrent((p) => (p + 1) % slides.length);
-      setProgressKey((k) => k + 1);
-    }, 4000);
-  };
+  }
 
-  const goTo = (n) => {
-    setCurrent(n);
+  intervalRef.current = setInterval(() => {
+    setCurrent((p) => (p + 1) % slides.length);
     setProgressKey((k) => k + 1);
-    startInterval();
-  };
+  }, 4000);
+};
 
-  useEffect(() => {
-    startInterval();
-    return () => clearInterval(intervalRef.current);
-  }, []);
+const goTo = (n: number) => {
+  setCurrent(n);
+  setProgressKey((k) => k + 1);
+  startInterval();
+};
+
+useEffect(() => {
+  startInterval();
+
+  return () => {
+    if (intervalRef.current !== null) {
+      clearInterval(intervalRef.current);
+    }
+  };
+}, []);
 
   return (
     <>
