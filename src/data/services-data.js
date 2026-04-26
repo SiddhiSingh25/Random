@@ -62,7 +62,7 @@ export const containerVariants = {
       ease: "easeIn" 
     }
   }
-};
+} as const;
 
 export const itemVariants = {
   hidden: { 
