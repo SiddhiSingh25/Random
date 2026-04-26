@@ -24,9 +24,7 @@ export default function Home() {
        <UpdateBar/>
       <WhoWeAre />
       
-      {/* <AchievementSection /> */}
-      <Services />
-      {/* <Team limit={6} /> */}
+      <Services limit={6} />
       <Testimonials />
       <OurClients/>
       <NewsLetter/>

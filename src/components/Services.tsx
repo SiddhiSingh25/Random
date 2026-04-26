@@ -6,16 +6,8 @@ import { motion, type Variants } from "framer-motion";
 import { servicesData } from "@/data/services-data";
 import ServiceCard from "./layout/services/ServiceCard";
 import { containerVariants } from "./common/ServiceCard";
-import Header from "./common/header";
 import Heading from "./common/Heading";
-// ─── Types ────────────────────────────────────────────────────────────────────
 
-type Service = {
-  id: string;
-  icon: React.ElementType;
-  title: string;
-  description: string;
-};
 
 type ServicesProps = {
   heading?: string;
@@ -36,207 +28,7 @@ const headerVariants: Variants = {
 
 // ─── Section Background ───────────────────────────────────────────────────────
 
-function Background() {
-  return (
-    <>
-      {/* Base wash */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(175deg, #f6f9fd 0%, #eef4fb 35%, #f9fbfe 65%, #f4f7fb 100%)",
-        }}
-      />
 
-      {/* Navy orb — top right */}
-      <div
-        className="pointer-events-none absolute -right-56 -top-36 h-[640px] w-[640px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(32,56,92,0.08) 0%, transparent 65%)",
-          filter: "blur(80px)",
-        }}
-      />
-
-      {/* Gold orb — bottom left */}
-      <div
-        className="pointer-events-none absolute -bottom-36 -left-52 h-[560px] w-[560px] rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(188,135,55,0.09) 0%, transparent 65%)",
-          filter: "blur(80px)",
-        }}
-      />
-
-      {/* Center wash */}
-      <div
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(32,56,92,0.04) 0%, transparent 70%)",
-          filter: "blur(60px)",
-        }}
-      />
-
-      {/* Top hairline */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, rgba(32,56,92,0.2), rgba(188,135,55,0.2), transparent)",
-        }}
-      />
-
-      {/* Bottom hairline */}
-      <div
-        className="pointer-events-none absolute bottom-0 inset-x-0 h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, rgba(32,56,92,0.1), transparent)",
-        }}
-      />
-
-      {/* Dot grid */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(32,56,92,0.1) 1px, transparent 1px)",
-          backgroundSize: "34px 34px",
-          opacity: 0.45,
-        }}
-      />
-
-      {/* Decorative SVG arcs — top right */}
-      <svg
-        className="pointer-events-none absolute right-0 top-0 h-[400px] w-[400px] opacity-[0.025]"
-        viewBox="0 0 400 400"
-        fill="none"
-        aria-hidden="true"
-      >
-        <circle cx="380" cy="20" r="260" stroke="#20385c" strokeWidth="0.65" />
-        <circle cx="380" cy="20" r="185" stroke="#bc8737" strokeWidth="0.65" />
-        <circle cx="380" cy="20" r="115" stroke="#20385c" strokeWidth="0.65" />
-        <circle cx="380" cy="20" r="60"  stroke="#bc8737" strokeWidth="0.65" />
-      </svg>
-
-      {/* Decorative SVG arcs — bottom left */}
-      <svg
-        className="pointer-events-none absolute bottom-0 left-0 h-[260px] w-[260px] opacity-[0.025]"
-        viewBox="0 0 280 280"
-        fill="none"
-        aria-hidden="true"
-      >
-        <circle cx="0" cy="280" r="190" stroke="#bc8737" strokeWidth="0.65" />
-        <circle cx="0" cy="280" r="120" stroke="#20385c" strokeWidth="0.65" />
-        <circle cx="0" cy="280" r="62"  stroke="#bc8737" strokeWidth="0.65" />
-      </svg>
-    </>
-  );
-}
-
-// ─── Section Header ───────────────────────────────────────────────────────────
-
-function SectionHeader({
-  heading,
-  subheading,
-  description,
-}: {
-  heading: string;
-  subheading: string;
-  description: string;
-}) {
-  return (
-    <motion.div
-      className="mb-20 text-center"
-      variants={headerVariants}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true }}
-    >
-      {/* Eyebrow */}
-      <div className="mb-6 inline-flex items-center gap-3">
-        <div
-          className="h-px w-10"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(188,135,55,0.65))",
-          }}
-        />
-        <span
-          className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[0.64rem] font-bold uppercase tracking-[0.28em]"
-          style={{
-            borderColor: "rgba(188,135,55,0.22)",
-            background: "rgba(188,135,55,0.06)",
-            color: "rgba(188,135,55,0.88)",
-          }}
-        >
-          <span
-            className="h-1.5 w-1.5 rounded-full"
-            style={{ background: "#bc8737", animation: "pulse 2s infinite" }}
-          />
-          {subheading}
-        </span>
-        <div
-          className="h-px w-10"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(188,135,55,0.65), transparent)",
-          }}
-        />
-      </div>
-
-      {/* Heading */}
-      <h2
-        className="mb-5 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-[3.4rem]"
-        style={{
-          background:
-            "linear-gradient(135deg, #1a2c46 0%, #20385c 38%, #bc8737 72%, #8a5e18 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-          letterSpacing: "-0.028em",
-          fontFamily: "'Georgia', 'Times New Roman', serif",
-        }}
-      >
-        {heading}
-      </h2>
-
-      {/* Diamond divider */}
-      <div className="mb-5 flex items-center justify-center gap-4">
-        <div
-          className="h-px w-14"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(32,56,92,0.2))",
-          }}
-        />
-        <svg viewBox="0 0 16 16" className="h-2.5 w-2.5" fill="none" aria-hidden="true">
-          <rect
-            x="3" y="3" width="10" height="10" rx="1"
-            transform="rotate(45 8 8)"
-            fill="rgba(188,135,55,0.5)"
-          />
-        </svg>
-        <div
-          className="h-px w-14"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(32,56,92,0.2), transparent)",
-          }}
-        />
-      </div>
-
-      {/* Description */}
-      <p
-        className="mx-auto max-w-2xl text-base leading-relaxed sm:text-[1.05rem]"
-        style={{ color: "rgba(32,56,92,0.46)" }}
-      >
-        {description}
-      </p>
-    </motion.div>
-  );
-}
 
 // ─── Services Section ─────────────────────────────────────────────────────────
 
@@ -249,7 +41,6 @@ export default function Services({
   const visibleServices = limit ? servicesData.slice(0, limit) : servicesData;
   return (
     <section className="relative overflow-hidden py-28 px-4 sm:px-6 lg:px-8">
-      <Background />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <Heading

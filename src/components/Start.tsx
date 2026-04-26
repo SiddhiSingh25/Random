@@ -850,7 +850,7 @@ const HeroSection = () => {
 
             {/* Stats */}
             <div
-              className="hero-anim-6 hero-stats-row hidden md:block border-2 border-secondary-950"
+              className="hero-anim-6 hero-stats-row hidden md:flex"
               style={{
                  gap: 28,
                 paddingTop: 22,
